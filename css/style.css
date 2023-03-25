@@ -1,0 +1,676 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-color:#ffffff;
+  --primary-accent-color:hsl(143, 96%, 70%);
+  --primary-background-color:hsl(120, 1%, 26%);
+  --secondary-background-color:hsl(180, 0%, 43%);
+  --secondary-accent-color:hsl(209, 91%, 22%);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.conatiner-main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.conatiner-main #sidebar {
+  width: 130px;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.conatiner-main #sidebar a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.25s ease-in-out;
+}
+.conatiner-main #sidebar .top {
+  width: 100%;
+  text-align: center;
+  padding-block: 1rem;
+  background-color: rgb(29, 29, 29);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.conatiner-main #sidebar .top img {
+  display: block;
+  background-position: center;
+  width: 60px;
+  margin: 0 auto;
+}
+.conatiner-main #sidebar .top h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+.conatiner-main #sidebar .top p {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  color: #fff;
+}
+.conatiner-main #sidebar .links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.conatiner-main #sidebar .links li {
+  font-size: 1.25rem;
+  width: 100%;
+  height: 50px;
+}
+.conatiner-main #sidebar .links li a {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-block: 1px solid #555;
+}
+.conatiner-main #sidebar .socials {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  height: 130px;
+}
+.conatiner-main #sidebar a:hover {
+  color: red;
+}
+.conatiner-main #content {
+  height: 100%;
+  flex: 1;
+  background-color: #555;
+  overflow-x: hidden;
+}
+.conatiner-main #content #main-text {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 5rem;
+  gap: 3rem;
+}
+.conatiner-main #content #main-text .text {
+  position: relative;
+}
+.conatiner-main #content #main-text .text::after, .conatiner-main #content #main-text .text::before {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+  position: absolute;
+  color: #000;
+}
+.conatiner-main #content #main-text .text::after {
+  content: "<h1>";
+  top: -20px;
+  left: -20px;
+}
+.conatiner-main #content #main-text .text::before {
+  content: "</h1>";
+  bottom: -10px;
+  right: -30px;
+}
+.conatiner-main #content #main-text .text span {
+  font-size: 5rem;
+  font-weight: 600;
+  transition: color 0.5s ease-in-out;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+}
+.conatiner-main #content #main-text .text span:hover {
+  color: red;
+}
+.conatiner-main #content #main-text .text .animated {
+  -webkit-animation: Squeezed-text 0.9s ease-in-out;
+          animation: Squeezed-text 0.9s ease-in-out;
+}
+.conatiner-main #content #main-text .text .opening-text {
+  opacity: 0;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(1) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(2) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(3) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(4) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(5) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(6) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(7) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(8) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(9) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(10) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(11) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(12) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(13) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(14) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(15) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(16) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(17) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(18) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(19) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(20) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(21) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(22) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(23) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 2.3s;
+          animation-delay: 2.3s;
+}
+.conatiner-main #content #main-text .text span.opening-text:nth-of-type(24) {
+  -webkit-animation: jello-horizontal 1s ease-in-out;
+          animation: jello-horizontal 1s ease-in-out;
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+}
+.conatiner-main #content #main-text .sub-text {
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.2em;
+  color: #333;
+  -webkit-animation: scale-in-ver-bottom 0.9s both;
+          animation: scale-in-ver-bottom 0.9s both;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.conatiner-main #content #main-text .sub-text::after, .conatiner-main #content #main-text .sub-text::before {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+  position: absolute;
+  color: #000;
+}
+.conatiner-main #content #main-text .sub-text::after {
+  content: "<p>";
+  top: -20px;
+  left: -20px;
+}
+.conatiner-main #content #main-text .sub-text::before {
+  content: "</p>";
+  bottom: -20px;
+  left: -20px;
+}
+.conatiner-main #content #main-text button {
+  outline: 0;
+  background-color: transparent;
+  border: 0;
+  border: 1px solid #08fdd8;
+  color: #08fdd8;
+  transition: color 0.5s;
+  padding-block: 1rem;
+  padding-inline: 3rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  -webkit-animation: scale-in-ver-bottom 0.9s both;
+          animation: scale-in-ver-bottom 0.9s both;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 1;
+}
+.conatiner-main #content #main-text button:hover {
+  color: #000;
+  position: relative;
+}
+.conatiner-main #content #main-text button:hover::before {
+  -webkit-animation: button-hover 0.5s forwards;
+          animation: button-hover 0.5s forwards;
+}
+.conatiner-main #content #main-text button:before {
+  content: "";
+  position: absolute;
+  background-color: #08fdd8;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+  -webkit-animation: undo-button-hover 0.5s forwards alternate;
+          animation: undo-button-hover 0.5s forwards alternate;
+}
+.conatiner-main .scroll-down {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  bottom: 30px;
+  -webkit-animation: scroll-down 0.5s infinite alternate;
+          animation: scroll-down 0.5s infinite alternate;
+}
+.conatiner-main .scroll-down-left {
+  left: 5px;
+}
+.conatiner-main .scroll-down-right {
+  right: 5px;
+}
+@-webkit-keyframes scroll-down {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: 30px;
+  }
+}
+@keyframes scroll-down {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: 30px;
+  }
+}
+
+.tags {
+  position: absolute;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+}
+
+span.html {
+  top: 30px;
+  left: 30px;
+}
+
+span.body {
+  top: 60px;
+  left: 60px;
+}
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+    opacity: 1;
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+    opacity: 1;
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes Squeezed-text {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes Squeezed-text {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@-webkit-keyframes scale-in-ver-bottom {
+  0% {
+    transform: scaleY(0);
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-ver-bottom {
+  0% {
+    transform: scaleY(0);
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes button-hover {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes button-hover {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@-webkit-keyframes undo-button-hover {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes undo-button-hover {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}/*# sourceMappingURL=style.css.map */
