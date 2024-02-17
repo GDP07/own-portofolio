@@ -1,0 +1,30 @@
+$(".work-container").on("touchstart mousedown", function (e) {
+  // Prevent default behavior to avoid scrolling or text selection
+  e.preventDefault();
+
+  // Store the initial position and event type
+  $(this).data("startX", e.clientX || e.originalEvent.touches[0].clientX);
+  $(this).data("isDragging", true);
+
+  // Store the initial scroll position
+  $(this).data("scrollLeft", $(this).closest('.work-wrapper').scrollLeft());
+});
+
+$(document).on("touchmove mousemove", function (e) {
+  // If not dragging, exit early
+  if (!($(".work-container").data("isDragging"))) return;
+
+  // Calculate the distance moved
+  var startX = $(".work-container").data("startX");
+  var currentX = e.clientX || e.originalEvent.touches[0].clientX;
+  var dx = currentX - startX;
+
+  // Update the scroll position of the parent container
+  var container = $(".work-container").closest('.work-wrapper');
+  container.scrollLeft($(".work-container").data("scrollLeft") - dx);
+});
+
+$(document).on("touchend mouseup", function () {
+  // Reset dragging state
+  $(".work-container").data("isDragging", false);
+});

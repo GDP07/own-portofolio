@@ -9,9 +9,12 @@
             integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/tagcanvas.js"></script>
+        <script src="js/carousel.js"></script>
         <script src="js/script.js" defer></script>
         <link rel="stylesheet" href="css/style.css">
-        <title>Personal</title>
+        <title>Diraj | Web Developer</title>
     </head>
 
     <body>
@@ -22,18 +25,21 @@
 
                 <div class="top">
                     <Img class="logo" src="img/logo.png"></Img>
-                    <h1>Negus</h1>
+                    <h1>Diraj</h1>
                     <p>Web Developer</p>
                 </div>
 
 
                 <ul class="links">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#main-text" id="home-nav">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" id="about-nav">About</a>
                     </li>
 
                     <li>
-                        <a href="#">My Skills</a>
+                        <a href="#my-skills">Technologies</a>
                     </li>
 
                     <li>
@@ -66,61 +72,459 @@
 
             </div>
 
-            <div id="content">
-
-                <div id="main-text">
-
-                    <span class="tags html">&lt;html&gt;</span>
-                    <span class="tags body">&lt;body&gt;</span>
-
-
-                    <div class="text">
-
-                        <span>H</span>
-                        <span>i</span>
-                        <span>,</span>
-                        <br>
-                        <span>I</span>
-                        <span>'</span>
-                        <span>m</span>
-                        &nbsp;
-                        <span>N</span>
-                        <span>E</span>
-                        <span>G</span>
-                        <span>U</span>
-                        <span>S</span>
-                        <span>,</span>
-                        <br>
-                        <span>W</span>
-                        <span>e</span>
-                        <span>b</span>
-                        &nbsp;
-                        <span>d</span>
-                        <span>e</span>
-                        <span>v</span>
-                        <span>e</span>
-                        <span>l</span>
-                        <span>o</span>
-                        <span>p</span>
-                        <span>e</span>
-                        <span>r</span>
-
-                    </div>
-
-                    <p class="sub-text">Front End Developer</p>
-
-                    <button>Contact me!</button>
-
+            <div class="content-container">
+                <div class="scroll-bottom-wrapper">
                     <span class="scroll-down scroll-down-left">Scroll down <i
                             class="fa-solid fa-arrow-down-long"></i></span>
                     <span class="scroll-down scroll-down-right">Scroll down <i
                             class="fa-solid fa-arrow-down-long"></i></span>
-
                 </div>
 
-                
+                <div id="content">
 
+
+                    <div class="blob-container">
+                        <div id="blob"></div>
+                        <div id="blob-blur"></div>
+                    </div>
+
+                    <section id="main-text">
+
+
+
+                        <span class="tags html">&lt;html&gt;</span>
+                        <span class="tags body">&lt;body&gt;</span>
+
+
+                        <div class="text">
+
+                            <span>H</span>
+                            <span>i</span>
+                            <span>,</span>
+                            <br>
+                            <span>I</span>
+                            <span>'</span>
+                            <span>m</span>
+                            &nbsp;
+                            <span>D</span>
+                            <span>I</span>
+                            <span>R</span>
+                            <span>A</span>
+                            <span>j</span>
+                            <span>,</span>
+                            <br>
+                            <span>A</span>
+                            &nbsp;
+                            <span>W</span>
+                            <span>e</span>
+                            <span>b</span>
+                            &nbsp;
+                            <span>d</span>
+                            <span>e</span>
+                            <span>v</span>
+                            <span>e</span>
+                            <span>l</span>
+                            <span>o</span>
+                            <span>p</span>
+                            <span>e</span>
+                            <span>r</span>
+
+                        </div>
+
+                        <p class="sub-text ">Front End Developer</p>
+
+                        <button>Contact me!</button>
+
+
+
+                    </section>
+
+
+                    <section id="about">
+
+
+                        <div class="about-text" id="about-text">
+
+                            <span>W</span>
+                            <span>h</span>
+                            <span>o</span>
+                            <br>
+                            <span>A</span>
+                            <span>m</span>
+                            &nbsp;
+                            <span>I</span>
+                            <span>?</span>
+
+                        </div>
+
+                        <p class="sub-text about-me-sub-text" id="about-description">
+                            Hi, I'm Diraj, a passionate web developer specializing in crafting engaging digital
+                            experiences. With expertise in HTML5, CSS3, and JavaScript, I focus on clean, efficient code
+                            and user-centered design. I strive to create seamless functionality across devices and
+                            platforms. When not coding, I explore the latest web development trends and enjoy
+                            brainstorming innovative ideas.
+                        </p>
+
+                        <ul class="about-me-list" id="about-me-list">
+                            <li><img src="./img/li.png" alt="" srcset="">Passionate web developer focused on crafting
+                                engaging digital experiences.</li>
+                            <li><img src="./img/li.png" alt="" srcset="">Specializes in HTML5, CSS3, and JavaScript.
+                            </li>
+                            <li><img src="./img/li.png" alt="" srcset="">Emphasizes clean, efficient code and
+                                user-centered design.</li>
+                            <li><img src="./img/li.png" alt="" srcset="">Ensures seamless functionality across devices
+                                and platforms.</li>
+                            <li><img src="./img/li.png" alt="" srcset="">Explores latest web development trends and
+                                experiments with new techniques.</li>
+                            <li><img src="./img/li.png" alt="" srcset="">Enjoys brainstorming innovative ideas and
+                                collaborating on exciting projects.</li>
+                        </ul>
+
+
+
+                    </section>
+
+
+                    <section id="my-skills">
+
+
+                        <div class="my-skills-text">
+
+                            <span>M</span>
+                            <span>y</span>
+                            <br>
+                            <span>S</span>
+                            <span>k</span>
+                            <span>i</span>
+                            <span>l</span>
+                            <span>l</span>
+                            <span>S</span>
+
+                        </div>
+
+                        <div class="my-skills-content">
+                            <div class="skill-container">
+
+                                <div class="skill-card">
+
+                                    <p>HTML</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 99%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>CSS</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 99%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>SCSS</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 99%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>Javascript</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 80%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>React Js</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 70%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>SQL</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 60%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>PHP</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 85%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>Laravel</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 65%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>Wordpress</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 70%;"></span>
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-card">
+
+                                    <p>Photoshop</p>
+
+                                    <span>
+                                        <span class="indicator" style="max-width: 50%;"></span>
+                                    </span>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="canvas-wrapper" id="CanvasContainer">
+                                <canvas width="500" height="500" id="technology">
+                                    <ul id="tags">
+                                        <li><a href="" style="font-size: 2rem; font-weight: bolder; color: #fff;">React
+                                                js</a></li>
+
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">Javascript</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">HTML</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">SASS</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">CSS</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">Wordpress</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">Photoshop</a>
+                                        </li>
+                                        <li><a href="" style="font-size: 2rem; font-weight: bolder; color: #fff;">Node
+                                                js</a></li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">PHP</a>
+                                        </li>
+                                        <li><a href=""
+                                                style="font-size: 2rem; font-weight: bolder; color: #fff;">Laravel</a>
+                                        </li>
+                                    </ul>
+                                </canvas>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <section id="my-work">
+
+
+                        <div class="my-work-text">
+
+                            <span>M</span>
+                            <span>y</span>
+                            <br>
+                            <span>W</span>
+                            <span>o</span>
+                            <span>r</span>
+                            <span>k</span>
+
+                        </div>
+
+                        <div class="work-wrapper" id="my-work-display">
+
+                            <button class="left slider-btn" onclick="scrollContainer('left')"><img src="./img/left.png"
+                                    alt="" srcset=""></button>
+                            <button class="right slider-btn" onclick="scrollContainer('right')"><img
+                                    src="./img/right.png" alt=""></button>
+                            <div class="work-container">
+                                <div class="work-card">
+
+                                    <img src="./img/w10.png" alt="">
+
+                                    <div>
+                                        <span>Ribluma Invoicer</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/sass.png" alt="" srcset="">
+                                            <img src="./img/tecs/react.png" alt="">
+                                            <img src="./img/tecs/mongodb.png" alt="">
+                                            <img src="./img/tecs/nodejs.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="work-card">
+
+                                    <img src="./img/w2.png" alt="">
+
+                                    <div>
+                                        <span>Adslk</span>
+
+                                        <div>
+                                            <img src="./img/tecs/Group 1000003367.png" alt="">
+                                            <img src="./img/tecs/4373178_elementor_logo_logos_icon.png" alt="">
+                                            <img src="./img/tecs/woocommerce.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="work-card">
+
+                                    <img src="./img/w1.png" alt="">
+
+                                    <div>
+                                        <span>Point of sales system</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/sass.png" alt="" srcset="">
+                                            <img src="./img/tecs/react.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="work-card">
+
+                                    <img src="./img/w3.png" alt="">
+
+                                    <div>
+                                        <span>Freedom Solutions landing</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/javascript.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="work-card">
+
+                                    <img src="./img/w5.png" alt="">
+
+                                    <div>
+                                        <span>Msecare landing</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/javascript.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="work-card">
+
+                                    <img src="./img/w11.png" alt="">
+
+                                    <div>
+                                        <span>Msecare certificate generator</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/javascript.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="work-card">
+
+                                    <img src="./img/w9.png" alt="">
+
+                                    <div>
+                                        <span>Tinkers landing</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/css3.png" alt="">
+                                            <img src="./img/tecs/react.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="work-card">
+
+                                    <img src="./img/w6.png" alt="">
+
+                                    <div>
+                                        <span>Platinumaccess landing</span>
+
+                                        <div>
+                                            <img src="./img/tecs/Group 1000003367.png" alt="">
+                                            <img src="./img/tecs/4373178_elementor_logo_logos_icon.png" alt="">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="work-card">
+
+                                    <img src="./img/w7.PNG" alt="">
+
+                                    <div>
+                                        <span>Point of sales system</span>
+
+                                        <div>
+                                            <img src="./img/tecs/html5.png" alt="">
+                                            <img src="./img/tecs/java.png" alt="" srcset="">
+                                            <img src="./img/tecs/mysql.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </section>
+
+
+                </div>
             </div>
+
 
         </div>
 

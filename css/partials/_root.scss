@@ -1,14 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-:root{
+
+:root {
     // --primary-color:hsl(83, 51%, 92%);
     // --primary-accent-color:hsl(143, 62%, 72%);
     // --primary-background-color:hsl(146, 64%, 61%);
     // --secondary-background-color:hsl(168, 45%, 40%);
     // --secondary-accent-color:hsl(209, 91%, 22%);
 
-    --primary-color:#ffffff;
-    --primary-accent-color:hsl(143, 96%, 70%);
-    --primary-background-color:hsl(120, 1%, 26%);
-    --secondary-background-color:hsl(180, 0%, 43%);
-    --secondary-accent-color:hsl(209, 91%, 22%);
+    --primary-color: #ffffff;
+    --primary-accent-color: hsl(143, 96%, 70%);
+    --primary-background-color: hsl(120, 1%, 26%);
+    --secondary-background-color: hsl(180, 0%, 43%);
+    --secondary-accent-color: hsl(209, 91%, 22%);
+
+
+    --blob-color: linear-gradient(to right,
+            aquamarine,
+            mediumpurple);
+    --blob-size: 40vw;
 }
