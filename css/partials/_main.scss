@@ -3,7 +3,7 @@ body {
     height: 100dvh;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
-    cursor: url("../../img/normal.png"), auto;
+    // cursor: url("../../img/normal.png"), auto;
 }
 
 * {
@@ -12,7 +12,8 @@ body {
 
 a,
 button {
-    cursor: url("../../img/link.png"), auto !important;
+    // cursor: url("../../img/link.png"), auto !important;
+    cursor: pointer;
 }
 
 
@@ -128,7 +129,7 @@ button {
                     height: 100%;
                     display: grid;
                     place-items: center;
-
+                    cursor: pointer;
 
                     &.active {
                         color: #08fdd8;
@@ -643,7 +644,8 @@ button {
                         scrollbar-width: none;
                         // scroll-snap-type: x mandatory;
                         scroll-behavior: smooth;
-                        cursor: url(../../img/move.png), auto;
+                        // cursor: url(../../img/move.png), auto;
+                        cursor: grab;
 
 
 
@@ -1338,6 +1340,43 @@ span.body {
 
             #content {
 
+                section {
+
+
+
+                    .text,
+                    .about-text,
+                    .my-skills-text,
+                    .my-work-text,
+                    .contact-me-text {
+
+
+
+                        &::after,
+                        &::before {
+
+                            font-size: .9rem;
+
+                        }
+
+
+
+                    }
+
+                    .sub-text {
+
+
+
+                        &::after,
+                        &::before {
+
+                            font-size: .9rem;
+
+                        }
+
+
+                    }
+                }
 
 
                 #main-text {

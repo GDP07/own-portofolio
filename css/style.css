@@ -125,7 +125,6 @@ body {
   height: 100dvh;
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
-  cursor: url("../../img/normal.png"), auto;
 }
 
 * {
@@ -136,7 +135,7 @@ body {
 
 a,
 button {
-  cursor: url("../../img/link.png"), auto !important;
+  cursor: pointer;
 }
 
 .conatiner-main {
@@ -231,6 +230,7 @@ button {
   height: 100%;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 .conatiner-main #sidebar .links li a.active {
   color: #08fdd8;
@@ -844,7 +844,7 @@ button {
   overflow: auto;
   scrollbar-width: none;
   scroll-behavior: smooth;
-  cursor: url(../../img/move.png), auto;
+  cursor: grab;
 }
 .conatiner-main .content-container #content #my-work .work-wrapper .work-container .work-card {
   min-width: min(100%, 500px);
@@ -1290,6 +1290,20 @@ span.body {
 }
 /* Medium screen size */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .conatiner-main .content-container #content section .text::after, .conatiner-main .content-container #content section .text::before,
+  .conatiner-main .content-container #content section .about-text::after,
+  .conatiner-main .content-container #content section .about-text::before,
+  .conatiner-main .content-container #content section .my-skills-text::after,
+  .conatiner-main .content-container #content section .my-skills-text::before,
+  .conatiner-main .content-container #content section .my-work-text::after,
+  .conatiner-main .content-container #content section .my-work-text::before,
+  .conatiner-main .content-container #content section .contact-me-text::after,
+  .conatiner-main .content-container #content section .contact-me-text::before {
+    font-size: 0.9rem;
+  }
+  .conatiner-main .content-container #content section .sub-text::after, .conatiner-main .content-container #content section .sub-text::before {
+    font-size: 0.9rem;
+  }
   .conatiner-main .content-container #content #main-text .text span {
     font-size: 3rem;
   }
