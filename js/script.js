@@ -20,6 +20,10 @@ $(".my-work-text span").hover(function () {
   $(this).addClass("animated");
 });
 
+$(".contact-me-text span").hover(function () {
+  $(this).addClass("animated");
+});
+
 $(".text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
   $(this).removeClass("opening-text");
 });
@@ -32,15 +36,13 @@ $(".my-skills-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd"
   $(this).removeClass("animated");
 });
 
-$(".my-work-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
+$(".contact-me-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
   $(this).removeClass("animated");
 });
 
-
-$(".text span").addClass("opening-text");
-$(".about-text span").addClass("opening-text");
-$(".my-skills-text span").addClass("opening-text");
-$(".my-work-text span").addClass("opening-text");
+$(".my-work-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
+  $(this).removeClass("animated");
+});
 
 //blob
 
@@ -58,140 +60,9 @@ document.body.onpointermove = event => {
   });
 }
 
-
-
-//scroll animation
-function intersectionObserver(classNameOrId, callbackFunction) {
-  // Get the target element based on class name or ID
-  const targetElement = document.querySelector(classNameOrId);
-
-  if (!targetElement) {
-    console.error("Element not found!");
-    return;
-  }
-
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5 // Trigger when 50% of the element is visible
-  };
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        callbackFunction();
-        observer.unobserve(entry.target); // Stop observing once the callback is executed
-      }
-    });
-  }, options);
-
-  observer.observe(targetElement);
-}
-
-//about me text
-intersectionObserver('.about-text', function () {
-  console.log("Hello");
-  $(".about-text span").each(function (index) {
-    var $span = $(this);
-    $span.css({
-      'animation': 'jello-horizontal 1s ease-in-out',
-      'animation-delay': (index * 0.1) + 's'
-    });
-
-    // Add animation end event listener
-    $span.one('animationend', function () {
-      $span.css('animation', '');
-      $span.removeClass("opening-text");
-    });
-  });
-});
-
-
-intersectionObserver('#about', function () {
-  $(".about-me-sub-text").addClass("animateit");
-});
-
-
-
-
-
-intersectionObserver('#about', function () {
-  setTimeout(function () {
-    $(".about-me-list li").addClass("animateit");
-  }, 1000);
-});
-
-intersectionObserver('#my-skills', function () {
-  $(".indicator").addClass("animateindicator");
-});
-
-
-//my skills texts
-intersectionObserver('.my-skills-text', function () {
-  console.log("Hello");
-  $(".my-skills-text span").each(function (index) {
-    var $span = $(this);
-    $span.css({
-      'animation': 'jello-horizontal 1s ease-in-out',
-      'animation-delay': (index * 0.1) + 's'
-    });
-
-    // Add animation end event listener
-    $span.one('animationend', function () {
-      $span.css('animation', '');
-      $span.removeClass("opening-text");
-    });
-  });
-});
-
-//my work texts
-intersectionObserver('.my-work-text', function () {
-  console.log("Hello");
-  $(".my-work-text span").each(function (index) {
-    var $span = $(this);
-    $span.css({
-      'animation': 'jello-horizontal 1s ease-in-out',
-      'animation-delay': (index * 0.1) + 's'
-    });
-
-    // Add animation end event listener
-    $span.one('animationend', function () {
-      $span.css('animation', '');
-      $span.removeClass("opening-text");
-    });
-  });
-});
-
-
-//highlight nav links
-// Get all the sections and nav elements
-var $sections = $('section');
-var $navLinks = $('.links li a');
-
-// Create an array to store the position of each section
-var sectionPositions = [];
-$sections.each(function () {
-  sectionPositions.push($(this).offset().top - ($(window).height() * 0.9));
-});
-
-// Highlight the first nav element when the page loads
-$navLinks.first().addClass('active');
+//blob
 
 $('#content').on("scroll", function () {
-  var scrollPosition = $(window).scrollTop();
-  // Get the current scroll position
-  var scrollPosition = $(this).scrollTop();
-
-  // Check which section is in the viewport
-  for (var i = 0; i < sectionPositions.length; i++) {
-    if (scrollPosition >= sectionPositions[i] && (i === sectionPositions.length - 1 || scrollPosition < sectionPositions[i + 1])) {
-      $navLinks.removeClass('active');
-      $navLinks.eq(i).addClass('active');
-      break;
-    }
-  }
-
-
   var container = $(this);
   var contentHeight = container.prop('scrollHeight');
   var scrollPosition = container.scrollTop();
@@ -223,32 +94,6 @@ if (!$('#technology').tagcanvas({
   // TagCanvas failed to load
   $('#CanvasContainer').hide();
 }
-
-
-
-// ///////////////
-// // Initialize draggable for work container
-// $(".work-container").draggable({
-//   axis: "x", // Restrict dragging to horizontal axis
-//   scroll: false, // Disable auto-scrolling while dragging
-//   start: function (event, ui) {
-//     // Store the initial position of the dragged element
-//     $(this).data("startPosition", ui.position);
-//   },
-//   drag: function (event, ui) {
-//     // Calculate the delta position
-//     var dx = ui.position.left - $(this).data("startPosition").left;
-
-//     // Update the scroll position of the parent container
-//     var parent = $(this).closest('.work-wrapper');
-//     var scrollLeft = parent.scrollLeft();
-
-//     parent.scrollLeft(scrollLeft - dx);
-
-//     // Reset the vertical position to prevent vertical movement
-//     ui.position.top = $(this).data("startPosition").top;
-//   }
-// });
 
 const slider = document.querySelector('.work-container');
 let isDown = false;
@@ -294,4 +139,118 @@ function scrollContainer(direction) {
     });
   }
 }
+$('section').css({
+  'opacity': '0',
+  'transition': 'top .5s ease-in-out, opacity 0s ease-in-out',
+  'max-height': '0px',
+  'min-height': '0px',
+  'top': '140px',
+  'z-index': '0'
+});
 
+
+
+$('#main-text').css({
+  'max-height': 'unset',
+  'min-height': 'calc(100dvh - 75px)',
+  'opacity': '1',
+  'top': 'var(--top-value)',
+  'pointer-events': 'all',
+  'z-index': '999999'
+})
+
+function manipulateSections(divId) {
+
+
+  // Set opacity and position for all sections
+  $('section').css({
+    'opacity': '0',
+    'transition': 'top .5s ease-in-out, opacity 0s ease-in-out',
+    'max-height': '0px',
+    'min-height': '0px',
+    'top': '140px',
+    'z-index': '0'
+  });
+
+  // Set opacity and position for the section with the provided ID
+  $('#' + divId).css({
+    'max-height': 'unset',
+    'min-height': 'fit-content',
+    'transition': 'top .5s ease-in-out, opacity .5s ease-in-out',
+    'opacity': '1',
+    'top': 'var(--top-value)',
+    'pointer-events': 'all',
+    'z-index': '999999'
+  });
+
+  if (divId === 'main-text' || divId === 'main-work' || divId === 'contact-me' || divId === 'about') {
+    $('#' + divId).css({
+
+      'min-height': 'calc(100dvh - 75px)',
+
+    });
+  }
+
+
+
+
+  if (divId == "about") {
+    $('.about-text span').addClass('animate').one('animationend', function () {
+      $(this).removeClass('opening-text');
+      $(this).removeClass('animate');
+    });
+
+    setTimeout(function () {
+      $(".about-me-sub-text").addClass("animateit");
+    }, 500);
+
+    setTimeout(function () {
+      $(".about-me-list li").addClass("animateit");
+    }, 1000);
+  }
+
+  if (divId == "my-skills") {
+    $('.my-skills-text span').addClass('animate').one('animationend', function () {
+      $(this).removeClass('opening-text');
+      $(this).removeClass('animate');
+    });
+
+    setTimeout(function () {
+      $(".indicator").addClass("animateindicator");
+    }, 500);
+
+  }
+
+  if (divId == "my-work") {
+    $('.my-work-text span').addClass('animate').one('animationend', function () {
+      $(this).removeClass('opening-text');
+      $(this).removeClass('animate');
+    });
+    setTimeout(function () {
+      $(".my-work-sub-text").addClass("animateit");
+    }, 250);
+    setTimeout(function () {
+      $(".work-wrapper").addClass("animateit");
+    }, 500);
+
+  }
+
+  if (divId == "contact-me") {
+    console.log(divId);
+    $('.contact-me-text span').addClass('animate').one('animationend', function () {
+      $(this).removeClass('opening-text');
+      $(this).removeClass('animate');
+    });
+    setTimeout(function () {
+      $(".contact-me-sub-text").addClass("animateit");
+    }, 250);
+
+  }
+}
+
+$('.links li a').on('click', function () {
+  // Remove 'active' class from all <a> tags
+  $('a').removeClass('active');
+  // Add 'active' class to the clicked <a> tag
+  $(this).addClass('active');
+});

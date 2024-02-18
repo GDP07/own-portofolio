@@ -21,37 +21,53 @@
 
         <div class="conatiner-main">
 
+            <ul class="mobile-links links">
+                <li>
+                    <a href="#" class="active" onclick="manipulateSections('main-text');">Home</a>
+                </li>
+                <li>
+                    <a href="#" onclick="manipulateSections('about');">About</a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="manipulateSections('my-skills');">Technologies</a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="manipulateSections('my-work');">Work</a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="manipulateSections('contact-me');">Contact</a>
+                </li>
+
+            </ul>
+
             <div id="sidebar">
 
                 <div class="top">
                     <Img class="logo" src="img/logo.png"></Img>
-                    <h1>Diraj</h1>
-                    <p>Web Developer</p>
                 </div>
 
 
                 <ul class="links">
                     <li>
-                        <a href="#main-text" id="home-nav">Home</a>
+                        <a href="#" id="home-nav" class="active" onclick="manipulateSections('main-text');">Home</a>
                     </li>
                     <li>
-                        <a href="#about" id="about-nav">About</a>
-                    </li>
-
-                    <li>
-                        <a href="#my-skills">Technologies</a>
+                        <a href="#" id="about-nav" onclick="manipulateSections('about');">About</a>
                     </li>
 
                     <li>
-                        <a href="#">Work</a>
+                        <a href="#" onclick="manipulateSections('my-skills');">Technologies</a>
                     </li>
 
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#" onclick="manipulateSections('my-work');">Work</a>
                     </li>
 
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="#" onclick="manipulateSections('contact-me');">Contact</a>
                     </li>
 
                 </ul>
@@ -92,48 +108,44 @@
 
 
 
-                        <span class="tags html">&lt;html&gt;</span>
-                        <span class="tags body">&lt;body&gt;</span>
-
-
                         <div class="text">
 
-                            <span>H</span>
-                            <span>i</span>
-                            <span>,</span>
+                            <span class="opening-text">H</span>
+                            <span class="opening-text">i</span>
+                            <span class="opening-text">,</span>
                             <br>
-                            <span>I</span>
-                            <span>'</span>
-                            <span>m</span>
+                            <span class="opening-text">I</span>
+                            <span class="opening-text">'</span>
+                            <span class="opening-text">m</span>
                             &nbsp;
-                            <span>D</span>
-                            <span>I</span>
-                            <span>R</span>
-                            <span>A</span>
-                            <span>j</span>
-                            <span>,</span>
+                            <span class="opening-text">D</span>
+                            <span class="opening-text">I</span>
+                            <span class="opening-text">R</span>
+                            <span class="opening-text">A</span>
+                            <span class="opening-text">j</span>
+                            <span class="opening-text">,</span>
                             <br>
-                            <span>A</span>
+                            <span class="opening-text">A</span>
                             &nbsp;
-                            <span>W</span>
-                            <span>e</span>
-                            <span>b</span>
+                            <span class="opening-text">W</span>
+                            <span class="opening-text">e</span>
+                            <span class="opening-text">b</span>
                             &nbsp;
-                            <span>d</span>
-                            <span>e</span>
-                            <span>v</span>
-                            <span>e</span>
-                            <span>l</span>
-                            <span>o</span>
-                            <span>p</span>
-                            <span>e</span>
-                            <span>r</span>
+                            <span class="opening-text">d</span>
+                            <span class="opening-text">e</span>
+                            <span class="opening-text">v</span>
+                            <span class="opening-text">e</span>
+                            <span class="opening-text">l</span>
+                            <span class="opening-text">o</span>
+                            <span class="opening-text">p</span>
+                            <span class="opening-text">e</span>
+                            <span class="opening-text">r</span>
 
                         </div>
 
-                        <p class="sub-text ">Front End Developer</p>
+                        <p class="sub-text ">Welcome to a showcase of my passion for web development.</p>
 
-                        <button>Contact me!</button>
+                        <button onclick="manipulateSections('contact-me');">Contact me!</button>
 
 
 
@@ -145,15 +157,15 @@
 
                         <div class="about-text" id="about-text">
 
-                            <span>W</span>
-                            <span>h</span>
-                            <span>o</span>
+                            <span class="opening-text">W</span>
+                            <span class="opening-text">h</span>
+                            <span class="opening-text">o</span>
                             <br>
-                            <span>A</span>
-                            <span>m</span>
+                            <span class="opening-text">A</span>
+                            <span class="opening-text">m</span>
                             &nbsp;
-                            <span>I</span>
-                            <span>?</span>
+                            <span class="opening-text">I</span>
+                            <span class="opening-text">?</span>
 
                         </div>
 
@@ -165,7 +177,7 @@
                             brainstorming innovative ideas.
                         </p>
 
-                        <ul class="about-me-list" id="about-me-list">
+                        <!-- <ul class="about-me-list" id="about-me-list">
                             <li><img src="./img/li.png" alt="" srcset="">Passionate web developer focused on crafting
                                 engaging digital experiences.</li>
                             <li><img src="./img/li.png" alt="" srcset="">Specializes in HTML5, CSS3, and JavaScript.
@@ -178,7 +190,7 @@
                                 experiments with new techniques.</li>
                             <li><img src="./img/li.png" alt="" srcset="">Enjoys brainstorming innovative ideas and
                                 collaborating on exciting projects.</li>
-                        </ul>
+                        </ul> -->
 
 
 
@@ -190,15 +202,15 @@
 
                         <div class="my-skills-text">
 
-                            <span>M</span>
-                            <span>y</span>
+                            <span class="opening-text">M</span>
+                            <span class="opening-text">y</span>
                             <br>
-                            <span>S</span>
-                            <span>k</span>
-                            <span>i</span>
-                            <span>l</span>
-                            <span>l</span>
-                            <span>S</span>
+                            <span class="opening-text">S</span>
+                            <span class="opening-text">k</span>
+                            <span class="opening-text">i</span>
+                            <span class="opening-text">l</span>
+                            <span class="opening-text">l</span>
+                            <span class="opening-text">S</span>
 
                         </div>
 
@@ -353,15 +365,23 @@
 
                         <div class="my-work-text">
 
-                            <span>M</span>
-                            <span>y</span>
+                            <span class="opening-text">M</span>
+                            <span class="opening-text">y</span>
                             <br>
-                            <span>W</span>
-                            <span>o</span>
-                            <span>r</span>
-                            <span>k</span>
+                            <span class="opening-text">W</span>
+                            <span class="opening-text">o</span>
+                            <span class="opening-text">r</span>
+                            <span class="opening-text">k</span>
 
                         </div>
+
+                        <p class="sub-text my-work-sub-text">
+                            Welcome to my showcase! I'm excited to share a glimpse of my completed projects with you.
+                            Each endeavor represents a unique blend of creativity, innovation, and meticulous attention
+                            to detail. From web development to design, I've poured my passion into every project,
+                            striving to deliver exceptional results that surpass expectations. Take a look around and
+                            explore the diverse range of work I've had the privilege to be a part of.
+                        </p>
 
                         <div class="work-wrapper" id="my-work-display">
 
@@ -521,6 +541,72 @@
 
                     </section>
 
+
+                    <section id="contact-me">
+
+
+                        <div class="main-text-wrapper">
+                            <div class="contact-me-text">
+
+                                <span class="opening-text">G</span>
+                                <span class="opening-text">e</span>
+                                <span class="opening-text">t</span>
+                                <br>
+                                <span class="opening-text">I</span>
+                                <span class="opening-text">n</span>
+                                &nbsp;
+                                <span class="opening-text">T</span>
+                                <span class="opening-text">o</span>
+                                <span class="opening-text">u</span>
+                                <span class="opening-text">c</span>
+                                <span class="opening-text">h</span>
+
+                            </div>
+
+                            <p class="sub-text contact-me-sub-text">
+                                Feel free to send me a message.
+                            </p>
+                        </div>
+
+                        <div class="contact-wrapper">
+
+                            <form action="" autocomplete="off">
+
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="name" autocomplete="off" placeholder="Name">
+                                    <label for="name">Name</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="email" id="email" autocomplete="off" placeholder="Email">
+                                    <label for="email">Email</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="subject" autocomplete="off" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <textarea name="" id="message" cols="30" rows="10" autocomplete="off"
+                                        placeholder="Message"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+
+                                <button type="button">
+                                    Send Message
+                                </button>
+
+
+                            </form>
+
+                        </div>
+
+
+
+
+                    </section>
 
                 </div>
             </div>

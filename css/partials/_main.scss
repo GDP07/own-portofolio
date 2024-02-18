@@ -21,16 +21,67 @@ button {
     width: 100%;
     display: flex;
 
-    #sidebar {
-        width: 130px;
-        height: 100%;
-        background-color: #000;
-        display: flex;
+    .mobile-links {
+        list-style: none;
+        display: none;
+        gap: 1rem;
+        justify-content: center;
         align-items: center;
-        flex-direction: column;
+
+        background: #ffffff26;
+        padding-inline: 1rem;
+        backdrop-filter: blur(70px);
+        border-radius: 10px;
+
+        position: fixed;
+        z-index: 999999999999999;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+
+
+
+        li {
+            font-size: 1.25rem;
+            width: 100%;
+            height: 50px;
+
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+
+                font-size: .9rem;
+                text-decoration: none;
+                color: #fff;
+                transition: color .25s ease-in-out;
+
+                &.active {
+                    color: #08fdd8;
+                }
+            }
+
+
+
+        }
+    }
+
+    #sidebar {
+
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 999999999999;
+        display: flex;
+        max-width: 1200px;
+        left: 50%;
+        transform: translateX(-50%);
         justify-content: space-between;
-        gap: 3rem;
-        border-right: 1px solid #fff;
+        align-items: center;
+        padding-block: 1rem;
+        padding-inline: 1rem;
 
         a {
             font-size: 1rem;
@@ -40,39 +91,31 @@ button {
         }
 
         .top {
-            width: 100%;
+
             text-align: center;
-            padding-block: 1rem;
-            background-color: #000;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
             img {
                 display: block;
                 background-position: center;
-                width: 60px;
+                width: 30px;
                 margin: 0 auto;
             }
 
-            h1 {
-                color: #fff;
-                font-size: 1.5rem;
-                margin-top: .5rem;
-            }
-
-            p {
-                font-size: .75rem;
-                margin-top: 1rem;
-                color: #fff;
-            }
         }
 
         .links {
             list-style: none;
             display: flex;
-            flex-direction: column;
+            gap: 1rem;
             justify-content: center;
             align-items: center;
-            width: 100%;
+
+            background: #ffffff26;
+            padding-inline: 1rem;
+            backdrop-filter: blur(70px);
+            border-radius: 10px;
+
 
             li {
                 font-size: 1.25rem;
@@ -85,10 +128,10 @@ button {
                     height: 100%;
                     display: grid;
                     place-items: center;
-                    border-block: 1px solid #ffffff;
+
 
                     &.active {
-                        color: red;
+                        color: #08fdd8;
                     }
                 }
 
@@ -103,12 +146,11 @@ button {
             display: flex;
             list-style: none;
             gap: 1rem;
-            padding-bottom: 2rem;
-            padding-top: 2rem;
+
         }
 
         a:hover {
-            color: red;
+            color: #08fdd8;
         }
 
     }
@@ -118,38 +160,49 @@ button {
         flex: 1;
         overflow: hidden;
         position: relative;
+        background-color: #000000;
 
         #content {
             height: 100%;
             flex: 1;
-            background-color: #000000;
+
             overflow-x: hidden;
             position: relative;
-            scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
             scrollbar-width: none;
+            max-width: 1300px;
+            margin: 0 auto;
+            overflow: auto;
 
 
             section {
                 padding-block: 3rem;
-                min-height: 100dvh;
+                min-height: fit-content;
                 width: 100%;
                 position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
                 flex-direction: column;
-                padding-left: 5rem;
-                padding-right: 2rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
                 gap: 3rem;
-                overflow: hidden;
-                scroll-snap-align: start;
+
+                max-width: 1400px;
+                margin: 0 auto;
+                position: absolute;
+                opacity: 0;
+                top: 140px;
+                max-height: 0px;
+
+                transition: top .5s ease-in-out, opacity .2s ease-in-out;
 
 
                 .text,
                 .about-text,
                 .my-skills-text,
-                .my-work-text {
+                .my-work-text,
+                .contact-me-text {
 
                     position: relative;
 
@@ -205,8 +258,7 @@ button {
                     transition: opacity .2s;
                     font-size: 1.2em;
                     color: #ffffff75;
-                    animation: scale-in-ver-bottom .9s both;
-                    animation-delay: 1s;
+
 
                     &::after,
                     &::before {
@@ -231,6 +283,12 @@ button {
             }
 
             #main-text {
+                min-height: calc(100dvh - 75px);
+                top: var(--top-value);
+                opacity: 1;
+                max-height: unset;
+                z-index: 99999;
+
 
                 .text {
 
@@ -241,6 +299,11 @@ button {
                         }
                     }
 
+                }
+
+                .sub-text {
+                    animation: scale-in-ver-bottom .9s both;
+                    animation-delay: 1.3s;
                 }
 
 
@@ -257,7 +320,7 @@ button {
                     font-size: 1.2rem;
                     cursor: pointer;
                     animation: scale-in-ver-bottom .9s both;
-                    animation-delay: 1s;
+                    animation-delay: 1.8s;
                     overflow: hidden;
                     isolation: isolate;
                     z-index: 1;
@@ -297,21 +360,29 @@ button {
                         font-size: 4rem;
                     }
 
+                    @for $i from 1 through 7 {
+                        span.animate:nth-of-type(#{$i}) {
+                            animation: jello-horizontal 1s ease-in-out forwards;
+                            animation-delay:(#{$i*0.1s});
+                        }
+                    }
+
                 }
 
                 .sub-text {
-                    font-size: 1.2em;
-                    max-width: 600px;
+                    font-size: 1em;
+                    position: relative;
                     line-height: 2rem;
+                    opacity: 0;
+
+                    &.animateit {
+                        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+                        animation-delay: .2s;
+                    }
 
                     &::after,
                     &::before {
                         font-size: 1.2rem;
-                    }
-
-                    &.animateit {
-                        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-                        animation-delay: 1s;
                     }
                 }
 
@@ -323,6 +394,15 @@ button {
                     padding-left: 1.2rem;
                     gap: 1rem;
                     font-size: .9rem;
+
+                    //od
+
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    padding-left: 0;
+                    padding-block: 1rem;
+
+                    //od
 
                     &::after,
                     &::before {
@@ -354,6 +434,14 @@ button {
                         align-items: center;
                         gap: .5rem;
 
+                        //od
+                        flex: 1;
+                        white-space: nowrap;
+                        backdrop-filter: blur(70px);
+                        background-color: rgba(255, 255, 255, 0.1490196078);
+                        padding: .5rem;
+                        //od
+
                         img {
                             width: 1rem;
                         }
@@ -374,11 +462,17 @@ button {
 
             #my-skills {
 
-
                 .my-skills-text {
 
                     span {
                         font-size: 4rem;
+                    }
+
+                    @for $i from 1 through 8 {
+                        span.animate:nth-of-type(#{$i}) {
+                            animation: jello-horizontal 1s ease-in-out forwards;
+                            animation-delay:(#{$i*0.1s});
+                        }
                     }
 
                 }
@@ -399,7 +493,7 @@ button {
 
                         .skill-card {
                             flex: 1;
-                            min-width: 300px;
+                            min-width: 250px;
                             padding: 1rem;
                             background-color: rgb(255 255 255 / 13%);
                             display: flex;
@@ -469,6 +563,29 @@ button {
                         font-size: 4rem;
                     }
 
+                    @for $i from 1 through 6 {
+                        span.animate:nth-of-type(#{$i}) {
+                            animation: jello-horizontal 1s ease-in-out forwards;
+                            animation-delay:(#{$i*0.1s});
+                        }
+                    }
+
+                }
+
+                .sub-text {
+                    font-size: 1em;
+                    position: relative;
+                    line-height: 1.5rem;
+
+                    &.animateit {
+                        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+                        animation-delay: .2s;
+                    }
+
+                    &::after,
+                    &::before {
+                        font-size: 1.2rem;
+                    }
                 }
 
                 .work-wrapper {
@@ -478,6 +595,14 @@ button {
                     flex-direction: column;
                     scrollbar-width: none;
                     position: relative;
+                    opacity: 0;
+
+
+                    &.animateit {
+                        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+                        animation-delay: .2s;
+                    }
+
 
                     >button {
                         background-color: transparent;
@@ -572,6 +697,124 @@ button {
 
 
             }
+
+            #contact-me {
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 6rem;
+
+                .main-text-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+
+                    .contact-me-text {
+
+                        span {
+                            font-size: 4rem;
+                        }
+
+                        @for $i from 1 through 10 {
+                            span.animate:nth-of-type(#{$i}) {
+                                animation: jello-horizontal 1s ease-in-out forwards;
+                                animation-delay:(#{$i*0.1s});
+                            }
+                        }
+
+                    }
+
+                    .sub-text {
+                        font-size: 1em;
+                        position: relative;
+                        line-height: 1.5rem;
+
+                        &.animateit {
+                            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+                            animation-delay: .2s;
+                        }
+
+                        &::after,
+                        &::before {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+
+                .contact-wrapper {
+                    max-width: 400px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                    width: 100%;
+
+                    form {
+                        display: contents;
+                    }
+
+                    .input-wrapper {
+                        width: 100%;
+                        background-color: rgba(255, 255, 255, 0.1490196078);
+                        position: relative;
+
+                        input,
+                        textarea {
+                            background-color: transparent;
+                            outline: none;
+                            border: none;
+                            padding: 1rem;
+                            width: 100%;
+                            cursor: url(../../img/text.png), auto;
+                            color: #fff;
+                        }
+
+                        label {
+                            position: absolute;
+                            color: #fff;
+                            top: 18px;
+                            left: 15px;
+                            font-size: 12px;
+                            transition: font-size .2s ease-in-out, top .2s ease-in-out;
+                            cursor: url(../../img/text.png), auto;
+                        }
+
+                        input:not(:placeholder-shown)+label,
+                        textarea:not(:placeholder-shown)+label {
+                            top: 6px;
+                            font-size: .6rem;
+                        }
+
+                        input::placeholder,
+                        textarea::placeholder {
+                            color: transparent;
+                            /* Change color here */
+                        }
+
+
+
+
+                    }
+
+
+                    button {
+                        width: 100%;
+                        font-size: 12px;
+                        background-color: transparent;
+                        outline: none;
+                        border: 1px solid #08fdd8;
+                        padding: 1rem;
+                        color: #fff;
+                        transition: background-color .3s ease-in-out;
+                        font-weight: 700;
+
+                        &:hover {
+                            background-color: #08fdd8;
+                        }
+                    }
+                }
+
+            }
         }
 
         .scroll-bottom-wrapper {
@@ -633,9 +876,11 @@ span.body {
 .blob-container {
     position: fixed;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100dvh;
     pointer-events: none;
+    left: 0;
+    right: 0;
 }
 
 #blob {
@@ -651,6 +896,9 @@ span.body {
     translate: -50% -50%;
     pointer-events: none;
     border-radius: 50%;
+
+
+
 }
 
 
@@ -797,10 +1045,6 @@ span.body {
         opacity: 0;
     }
 
-    40% {
-        opacity: 0.6;
-    }
-
     100% {
         opacity: 1;
     }
@@ -818,10 +1062,481 @@ span.body {
 
 
 
+/* Small screen size */
+@media only screen and (max-width: 767px) {
+
+
+
+    .conatiner-main {
+        --top-value: 50px;
+        --blob-size: 70vw;
+
+        .mobile-links {
+            display: flex;
+        }
+
+
+        #sidebar {
+
+
+            a {}
+
+            .top {
+                img {}
+
+            }
+
+            .links {
+
+                display: none;
+
+                li {}
+
+
+            }
+
+            .socials {}
+
+
+
+        }
+
+        .content-container {
+
+
+            #content {
+
+                section {
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    gap: 2.4rem;
+                    padding-bottom: 8rem;
+                }
+
+
+                #main-text {
+                    min-height: calc(100dvh - 75px);
+                    height: calc(100dvh - 75px);
+                    max-height: calc(100dvh - 75px);
+                    padding-bottom: 3rem;
+
+                    .text {
+                        span {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .sub-text {
+                        font-size: 1rem;
+                    }
+
+                }
+
+
+                #about {
+
+                    .about-text {
+
+                        span {
+                            font-size: 1.5rem;
+                        }
+
+
+                    }
+
+
+
+                }
+
+                #my-skills {
+
+
+                    .my-skills-text {
+
+                        span {
+                            font-size: 1.5rem;
+                        }
+
+
+
+
+                    }
+
+                    .my-skills-content {
+
+                        .skill-container {
+
+
+
+                            .skill-card {
+
+
+                                >p {
+                                    color: #ffffffa5;
+                                }
+
+                                >span {
+
+
+                                    span {}
+
+
+
+                                }
+                            }
+
+
+
+
+                        }
+
+                        .canvas-wrapper {
+                            position: fixed;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            opacity: .8;
+                            z-index: -1;
+                            width: 100%;
+
+
+                            canvas {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+
+
+                }
+
+                #my-work {
+                    .my-work-text {
+
+                        span {
+                            font-size: 1.5rem;
+                        }
+
+
+                    }
+
+                    .work-wrapper {
+
+                        >button {}
+
+                        .work-container {
+
+                            scroll-snap-type: x mandatory;
+
+
+
+                            .work-card {
+
+                                scroll-snap-align: center;
+
+                                img {}
+
+                                >div {
+
+
+
+                                    span {}
+
+                                    >div {
+
+
+                                        img {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+                #contact-me {
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.7rem;
+                    align-items: flex-start;
+
+                    .main-text-wrapper {
+                        display: contents;
+
+                        .contact-me-text {
+
+                            span {
+                                font-size: 1.5rem;
+                            }
+
+
+                        }
+
+                        .sub-text {}
+                    }
+
+                    .contact-wrapper {
+
+
+                        form {}
+
+                        .input-wrapper {}
+
+
+                        button {}
+                    }
+
+                }
+            }
+
+
+        }
+
+        .scroll-bottom-wrapper {
+            display: none;
+        }
+    }
+}
+
+/* Medium screen size */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+    .conatiner-main {
+
+
+        #sidebar {
+
+
+            a {}
+
+            .top {
+                img {}
+
+            }
+
+            .links {
+
+
+
+                li {}
+
+
+            }
+
+            .socials {}
+
+
+
+        }
+
+        .content-container {
+
+
+            #content {
+
+
+
+                #main-text {
+
+
+
+                    .text {
+                        span {
+                            font-size: 3rem;
+                        }
+                    }
+
+                    .sub-text {}
+
+
+
+                    button {}
+
+                    button:hover {}
+
+                    button:before {}
+
+
+                }
+
+
+                #about {
+
+                    .about-text {
+
+                        span {
+                            font-size: 2rem;
+                        }
+
+
+                    }
+
+                    .sub-text {}
+
+                    .about-me-list {
+
+
+                        li {
+
+
+                            img {}
+
+                        }
+
+
+
+
+                    }
+
+                }
+
+                #my-skills {
+
+
+                    .my-skills-text {
+
+                        span {
+                            font-size: 2rem;
+                        }
+
+
+
+
+                    }
+
+                    .my-skills-content {
+
+                        .skill-container {
+
+
+
+                            .skill-card {
+
+
+                                >p {
+                                    color: #ffffffa5;
+                                }
+
+                                >span {
+
+
+                                    span {}
+
+
+
+                                }
+                            }
+
+
+
+
+                        }
+
+                        .canvas-wrapper {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            opacity: .8;
+                            z-index: -1;
+
+                            canvas {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+
+
+                }
+
+                #my-work {
+                    .my-work-text {
+
+                        span {
+                            font-size: 2rem;
+                        }
+
+
+                    }
+
+                    .work-wrapper {
+
+                        >button {}
+
+                        .work-container {
 
 
 
 
 
+                            .work-card {
 
-//
+
+
+                                img {}
+
+                                >div {
+
+
+
+                                    span {}
+
+                                    >div {
+
+
+                                        img {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+                #contact-me {
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 4rem;
+
+                    .main-text-wrapper {
+
+                        .contact-me-text {
+
+                            span {
+                                font-size: 2rem;
+                            }
+
+
+                        }
+
+                        .sub-text {}
+                    }
+
+                    .contact-wrapper {
+
+
+                        form {}
+
+                        .input-wrapper {}
+
+
+                        button {}
+                    }
+
+                }
+            }
+
+
+        }
+
+    }
+
+}
