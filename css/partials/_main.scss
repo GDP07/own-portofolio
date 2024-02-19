@@ -29,17 +29,16 @@ button {
         justify-content: center;
         align-items: center;
 
-        background: #ffffff26;
+        background: var(--glass-color);
         padding-inline: 1rem;
         backdrop-filter: blur(70px);
         border-radius: 10px;
 
         position: fixed;
-        z-index: 999999999999999;
+        z-index: 999999999;
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-
 
 
         li {
@@ -56,11 +55,11 @@ button {
 
                 font-size: .9rem;
                 text-decoration: none;
-                color: #fff;
-                transition: color .25s ease-in-out;
+                color: var(--font-color);
+                transition: color .25s ease-in-out, var(--transition-animation);
 
                 &.active {
-                    color: #08fdd8;
+                    color: var(--accent-color);
                 }
             }
 
@@ -74,7 +73,7 @@ button {
         position: absolute;
         top: 0;
         width: 100%;
-        z-index: 999999999999;
+        z-index: 999999999;
         display: flex;
         max-width: 1200px;
         left: 50%;
@@ -87,8 +86,8 @@ button {
         a {
             font-size: 1rem;
             text-decoration: none;
-            color: #fff;
-            transition: color .25s ease-in-out;
+            color: var(--font-color);
+            transition: color .25s ease-in-out, var(--transition-animation);
         }
 
         .top {
@@ -96,11 +95,14 @@ button {
             text-align: center;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+            padding-right: 105px;
+
             img {
                 display: block;
                 background-position: center;
                 width: 30px;
                 margin: 0 auto;
+                filter: var(--filter-image);
             }
 
         }
@@ -112,7 +114,7 @@ button {
             justify-content: center;
             align-items: center;
 
-            background: #ffffff26;
+            background: var(--glass-color);
             padding-inline: 1rem;
             backdrop-filter: blur(70px);
             border-radius: 10px;
@@ -132,7 +134,7 @@ button {
                     cursor: pointer;
 
                     &.active {
-                        color: #08fdd8;
+                        color: var(--accent-color);
                     }
                 }
 
@@ -147,11 +149,12 @@ button {
             display: flex;
             list-style: none;
             gap: 1rem;
+            align-items: center;
 
         }
 
         a:hover {
-            color: #08fdd8;
+            color: var(--accent-color);
         }
 
     }
@@ -161,12 +164,11 @@ button {
         flex: 1;
         overflow: hidden;
         position: relative;
-        background-color: #000000;
+        background-color: var(--bg-color);
 
         #content {
             height: 100%;
             flex: 1;
-
             overflow-x: hidden;
             position: relative;
             scroll-behavior: smooth;
@@ -174,7 +176,6 @@ button {
             max-width: 1300px;
             margin: 0 auto;
             overflow: auto;
-
 
             section {
                 padding-block: 3rem;
@@ -196,7 +197,7 @@ button {
                 top: 140px;
                 max-height: 0px;
 
-                transition: top .5s ease-in-out, opacity .2s ease-in-out;
+                transition: top .5s ease-in-out, opacity .2s ease-in-out, var(--transition-animation);
 
 
                 .text,
@@ -212,7 +213,7 @@ button {
                         font-family: 'Dancing Script', cursive;
                         font-size: 1.2rem;
                         position: absolute;
-                        color: #000;
+                        color: var(--tags-color);
                     }
 
                     &::after {
@@ -230,10 +231,10 @@ button {
                     span {
                         font-size: 5rem;
                         font-weight: 600;
-                        transition: color .5s ease-in-out;
+                        transition: color .5s ease-in-out, var(--transition-animation);
                         display: inline-block;
                         position: relative;
-                        color: #fff;
+                        color: var(--font-color);
                     }
 
                     span:hover {
@@ -256,9 +257,9 @@ button {
 
                 .sub-text {
                     opacity: 0;
-                    transition: opacity .2s;
+                    transition: opacity .2s ease-in-out, var(--transition-animation);
                     font-size: 1.2em;
-                    color: #ffffff75;
+                    color: var(--sub-text-color);
 
 
                     &::after,
@@ -266,7 +267,7 @@ button {
                         font-family: 'Dancing Script', cursive;
                         font-size: 1.2rem;
                         position: absolute;
-                        color: #000;
+                        color: var(--tags-color);
                     }
 
                     &::after {
@@ -290,12 +291,18 @@ button {
                 max-height: unset;
                 z-index: 99999;
 
-
                 .text {
 
                     @for $i from 1 through 25 {
                         span.opening-text:nth-of-type(#{$i}) {
                             animation: jello-horizontal 1s ease-in-out;
+                            animation-delay:(#{$i*0.1s});
+                        }
+                    }
+
+                    @for $i from 1 through 25 {
+                        span.animate:nth-of-type(#{$i}) {
+                            animation: jello-horizontal 1s ease-in-out forwards;
                             animation-delay:(#{$i*0.1s});
                         }
                     }
@@ -313,9 +320,9 @@ button {
                     outline: 0;
                     background-color: transparent;
                     border: 0;
-                    border: 1px solid #08fdd8;
-                    color: #08fdd8;
-                    transition: color .5s;
+                    border: 1px solid var(--font-color);
+                    color: var(--font-color);
+                    transition: color .5s ease-in-out, var(--transition-animation);
                     padding-block: 1rem;
                     padding-inline: 3rem;
                     font-size: 1.2rem;
@@ -328,24 +335,23 @@ button {
                 }
 
                 button:hover {
-                    //background-color: #08fdd8;
-                    color: #000;
+                    //background-color: var( --accent-color);
+                    color: var(--bg-color);
                     position: relative;
 
                     &::before {
-                        animation: button-hover .5s forwards;
+                        animation: button-hover .5s ease-in-out forwards;
                     }
                 }
 
                 button:before {
                     content: "";
                     position: absolute;
-                    background-color: #08fdd8;
+                    background-color: var(--font-color);
                     width: 100%;
                     height: 100%;
                     inset: 0;
                     z-index: -1;
-
                     animation: undo-button-hover .5s forwards alternate;
                 }
 
@@ -387,78 +393,6 @@ button {
                     }
                 }
 
-                .about-me-list {
-                    position: relative;
-                    color: #ffffffa5;
-                    display: flex;
-                    flex-direction: column;
-                    padding-left: 1.2rem;
-                    gap: 1rem;
-                    font-size: .9rem;
-
-                    //od
-
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    padding-left: 0;
-                    padding-block: 1rem;
-
-                    //od
-
-                    &::after,
-                    &::before {
-                        font-family: 'Dancing Script', cursive;
-                        font-size: 1.2rem;
-                        position: absolute;
-                        color: #000;
-                    }
-
-                    &::after {
-                        content: "<ul>";
-                        top: -20px;
-                        left: -20px;
-                    }
-
-                    &::before {
-                        content: "</ul>";
-                        bottom: -20px;
-                        left: -20px;
-                    }
-
-                    li {
-                        list-style: none;
-                        opacity: 0;
-                        position: relative;
-                        padding-block: .5rem;
-                        color: #ffffffa5;
-                        display: flex;
-                        align-items: center;
-                        gap: .5rem;
-
-                        //od
-                        flex: 1;
-                        white-space: nowrap;
-                        backdrop-filter: blur(70px);
-                        background-color: rgba(255, 255, 255, 0.1490196078);
-                        padding: .5rem;
-                        //od
-
-                        img {
-                            width: 1rem;
-                        }
-
-                    }
-
-                    @for $i from 1 through 6 {
-                        .animateit:nth-of-type(#{$i}) {
-                            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-                            animation-delay:(#{$i*0.1s});
-                        }
-                    }
-
-
-                }
-
             }
 
             #my-skills {
@@ -496,7 +430,7 @@ button {
                             flex: 1;
                             min-width: 250px;
                             padding: 1rem;
-                            background-color: rgb(255 255 255 / 13%);
+                            background-color: var(--glass-color);
                             display: flex;
                             flex-direction: column;
                             backdrop-filter: blur(10px);
@@ -505,17 +439,17 @@ button {
                             height: fit-content;
 
                             >p {
-                                color: #ffffffa5;
+                                color: var(--sub-text-color);
                             }
 
                             >span {
                                 width: 100%;
-                                height: 10px;
+                                height: 5px;
 
 
                                 span {
                                     width: 0%;
-                                    background-color: #fff;
+                                    background-color: var(--font-color);
                                     height: 100%;
                                     display: block;
                                 }
@@ -544,13 +478,6 @@ button {
 
                     }
 
-                    .canvas-wrapper {
-                        flex: 1;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 400px;
-                    }
                 }
 
 
@@ -613,7 +540,7 @@ button {
                         top: 50%;
                         transform: translateY(-50%);
                         background: #00000053;
-                        transition: background .3s ease-in;
+                        transition: background .3s ease-in-out, var(--transition-animation);
                         padding: .5rem;
 
                         &:hover {
@@ -654,7 +581,7 @@ button {
                             min-width: min(100%, 500px);
                             padding: 1rem;
                             position: relative;
-                            background-color: rgba(255, 255, 255, 0.13);
+                            background-color: var(--glass-color);
                             backdrop-filter: blur(10px);
                             // scroll-snap-align: center;
 
@@ -667,7 +594,7 @@ button {
 
                             >div {
 
-                                background-color: rgba(255, 255, 255, 0.13);
+                                background-color: var(--glass-color);
                                 margin-top: 1rem;
                                 display: flex;
                                 flex-direction: column;
@@ -675,7 +602,7 @@ button {
 
                                 span {
                                     font-size: 1rem;
-                                    color: #ffffffe5;
+                                    color: var(--font-color);
                                     text-transform: uppercase;
                                 }
 
@@ -757,7 +684,7 @@ button {
 
                     .input-wrapper {
                         width: 100%;
-                        background-color: rgba(255, 255, 255, 0.1490196078);
+                        background-color: var(--glass-color);
                         position: relative;
 
                         input,
@@ -767,23 +694,23 @@ button {
                             border: none;
                             padding: 1rem;
                             width: 100%;
-                            cursor: url(../../img/text.png), auto;
-                            color: #fff;
+                            // cursor: url(../../img/text.png), auto;
+                            color: var(--font-color);
                         }
 
                         label {
                             position: absolute;
-                            color: #fff;
+                            color: var(--font-color);
                             top: 18px;
                             left: 15px;
                             font-size: 12px;
-                            transition: font-size .2s ease-in-out, top .2s ease-in-out;
-                            cursor: url(../../img/text.png), auto;
+                            transition: font-size .2s ease-in-out, top .2s ease-in-out, var(--transition-animation);
+                            // cursor: url(../../img/text.png), auto;
                         }
 
                         input:not(:placeholder-shown)+label,
                         textarea:not(:placeholder-shown)+label {
-                            top: 6px;
+                            top: 4px;
                             font-size: .6rem;
                         }
 
@@ -804,14 +731,15 @@ button {
                         font-size: 12px;
                         background-color: transparent;
                         outline: none;
-                        border: 1px solid #08fdd8;
+                        border: 1px solid var(--font-color);
                         padding: 1rem;
-                        color: #fff;
-                        transition: background-color .3s ease-in-out;
+                        color: var(--font-color);
+                        transition: background-color .3s ease-in-out, var(--transition-animation);
                         font-weight: 700;
 
                         &:hover {
-                            background-color: #08fdd8;
+                            background-color: var(--font-color);
+                            color: var(--bg-color);
                         }
                     }
                 }
@@ -819,104 +747,70 @@ button {
             }
         }
 
-        .scroll-bottom-wrapper {
-            position: absolute;
-            z-index: 33;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-
-            .scroll-down {
-                display: flex;
-                gap: 1rem;
-                justify-content: center;
-                align-items: center;
-                writing-mode: vertical-rl;
-                width: fit-content;
-                position: absolute;
-                bottom: 30px;
-                animation: scroll-down .5s infinite alternate;
-                color: #ffffff75;
-            }
-
-            .scroll-down-left {
-                left: 5px;
-            }
-
-            .scroll-down-right {
-                right: 5px;
-            }
-
-        }
     }
 
 }
 
+.mode-change-wrapper {
+    width: 55px;
+    height: 30px;
+    background: var(--glass-color);
+    border-radius: 10px;
+    position: relative;
+
+    >div {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 3px;
+        cursor: pointer;
+        transition: all .5s ease-in-out, var(--transition-animation);
+        background-image: url(../../img/moon.png);
+        background-size: contain;
+        background-color: #000;
 
 
-
-//tags
-.tags {
-    position: absolute;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2rem;
+        &.light {
+            right: calc(100% - 28px);
+            background-image: url(../../img/sun.png);
+            background-color: #fff;
+        }
+    }
 }
 
-span.html {
-    top: 30px;
-    left: 30px;
-}
-
-span.body {
-    top: 60px;
-    left: 60px;
-}
-
-
-//blob
-
-.blob-container {
+.preloader {
+    background-color: var(--bg-color);
     position: fixed;
-    overflow: hidden;
-    width: 100vw;
-    height: 100dvh;
-    pointer-events: none;
-    left: 0;
-    right: 0;
-}
-
-#blob {
-    animation: rotate360 20s infinite;
-    background: var(--blob-color);
-    filter: blur(calc(var(--blob-size)/3.15));
-
-    width: var(--blob-size);
-    height: var(--blob-size);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    pointer-events: none;
-    border-radius: 50%;
-
-
-
-}
-
-
-
-#blob-blur {
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: 2;
-    backdrop-filter: blur;
-    pointer-events: none;
+    z-index: 99999999999999999999999999999999999999;
+    display: grid;
+    place-items: center;
+
+    img {
+        width: 50px;
+        animation: jello-horizontal 1s infinite;
+        filter: var(--filter-image);
+    }
 }
 
 
 
 //animations
+@keyframes side-to-side {
+    0% {
+        right: unset;
+    }
+
+    100% {
+        left: 3px;
+    }
+}
+
 @keyframes rotate360 {
     from {
         rotate: 0deg;
@@ -1063,11 +957,21 @@ span.body {
 }
 
 
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(100%);
+    }
+}
+
 
 /* Small screen size */
 @media only screen and (max-width: 767px) {
-
-
 
     .conatiner-main {
         --top-value: 50px;
@@ -1171,10 +1075,10 @@ span.body {
 
 
                             .skill-card {
-
+                                min-width: 40%;
 
                                 >p {
-                                    color: #ffffffa5;
+                                    color: var(--sub-text-color);
                                 }
 
                                 >span {
@@ -1190,22 +1094,6 @@ span.body {
 
 
 
-                        }
-
-                        .canvas-wrapper {
-                            position: fixed;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            opacity: .8;
-                            z-index: -1;
-                            width: 100%;
-
-
-                            canvas {
-                                width: 100%;
-                                height: 100%;
-                            }
                         }
                     }
 
@@ -1301,11 +1189,27 @@ span.body {
             display: none;
         }
     }
+
+    .bouncing-blob {
+        width: 60vw;
+
+    }
+
+    .bouncing-blob--white {
+        width: 30vw;
+    }
+
+    .bouncing-blobs {
+
+        filter: blur(50px);
+
+    }
+
+
 }
 
 /* Medium screen size */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-
 
     .conatiner-main {
 
@@ -1389,16 +1293,6 @@ span.body {
                         }
                     }
 
-                    .sub-text {}
-
-
-
-                    button {}
-
-                    button:hover {}
-
-                    button:before {}
-
 
                 }
 
@@ -1414,22 +1308,6 @@ span.body {
 
                     }
 
-                    .sub-text {}
-
-                    .about-me-list {
-
-
-                        li {
-
-
-                            img {}
-
-                        }
-
-
-
-
-                    }
 
                 }
 
@@ -1457,17 +1335,9 @@ span.body {
 
 
                                 >p {
-                                    color: #ffffffa5;
+                                    color: var(--sub-text-color);
                                 }
 
-                                >span {
-
-
-                                    span {}
-
-
-
-                                }
                             }
 
 
@@ -1475,18 +1345,7 @@ span.body {
 
                         }
 
-                        .canvas-wrapper {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            opacity: .8;
-                            z-index: -1;
 
-                            canvas {
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
                     }
 
 
@@ -1501,38 +1360,6 @@ span.body {
                         }
 
 
-                    }
-
-                    .work-wrapper {
-
-                        >button {}
-
-                        .work-container {
-
-
-
-
-
-                            .work-card {
-
-
-
-                                img {}
-
-                                >div {
-
-
-
-                                    span {}
-
-                                    >div {
-
-
-                                        img {}
-                                    }
-                                }
-                            }
-                        }
                     }
 
 
@@ -1556,19 +1383,8 @@ span.body {
 
                         }
 
-                        .sub-text {}
                     }
 
-                    .contact-wrapper {
-
-
-                        form {}
-
-                        .input-wrapper {}
-
-
-                        button {}
-                    }
 
                 }
             }
@@ -1578,4 +1394,59 @@ span.body {
 
     }
 
+}
+
+//blob
+.bouncing-blob {
+    width: 32vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    will-change: transform;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform-origin: left top;
+
+}
+
+.bouncing-blob--blue {
+    background: #4783c7;
+}
+
+.bouncing-blob--white {
+    background: #ffffff;
+    z-index: 1;
+    width: 15vw;
+}
+
+.bouncing-blob--purple {
+    background: #8c8ff1;
+}
+
+.bouncing-blob--pink {
+    background: #e289cd50;
+}
+
+.bouncing-blobs-container {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    isolation: isolate;
+}
+
+.bouncing-blobs {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(50px);
+    isolation: isolate;
 }

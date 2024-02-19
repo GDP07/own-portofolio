@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 :root {
-    // --primary-color:hsl(83, 51%, 92%);
-    // --primary-accent-color:hsl(143, 62%, 72%);
-    // --primary-background-color:hsl(146, 64%, 61%);
-    // --secondary-background-color:hsl(168, 45%, 40%);
-    // --secondary-accent-color:hsl(209, 91%, 22%);
 
     --primary-color: #ffffff;
     --primary-accent-color: hsl(143, 96%, 70%);
@@ -20,8 +15,37 @@
     --blob-size: 40vw;
 
     --top-value: 75px;
+
+
+    --transition-animation-duration: .3s;
+    --transition-animation: background-color var(--transition-animation-duration) ease-in-out, color var(--transition-animation-duration) ease-in-out, border-color var(--transition-animation-duration) ease-in-out;
+
+
+    --font-color: #fff;
+    --tags-color: #000;
+    --sub-text-color: #ffffff75;
+    --accent-color: #08fdd8;
+    --glass-color: #ffffff26;
+    --bg-color: #000;
+    --filter-image: unset;
+
+
+    //dark mode colors
+    // --font-color: #000;
+    // --tags-color: #000;
+    // --sub-text-color: #000000a3;
+    // --accent-color: #ff0000;
+    // --glass-color: #00000012;
+    // --bg-color: #fff;
 }
 
-// * {
-//     background-color: #1a005326 !important;
-// }
+* {
+    transition: var(--transition-animation);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

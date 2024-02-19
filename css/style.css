@@ -118,6 +118,24 @@ input, select {
           mediumpurple);
   --blob-size: 40vw;
   --top-value: 75px;
+  --transition-animation-duration: .3s;
+  --transition-animation: background-color var(--transition-animation-duration) ease-in-out, color var(--transition-animation-duration) ease-in-out, border-color var(--transition-animation-duration) ease-in-out;
+  --font-color: #fff;
+  --tags-color: #000;
+  --sub-text-color: #ffffff75;
+  --accent-color: #08fdd8;
+  --glass-color: #ffffff26;
+  --bg-color: #000;
+  --filter-image: unset;
+}
+
+* {
+  transition: var(--transition-animation);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -149,13 +167,13 @@ button {
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1490196078);
+  background: var(--glass-color);
   padding-inline: 1rem;
   -webkit-backdrop-filter: blur(70px);
           backdrop-filter: blur(70px);
   border-radius: 10px;
   position: fixed;
-  z-index: 999999999999999;
+  z-index: 999999999;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -172,17 +190,17 @@ button {
   place-items: center;
   font-size: 0.9rem;
   text-decoration: none;
-  color: #fff;
-  transition: color 0.25s ease-in-out;
+  color: var(--font-color);
+  transition: color 0.25s ease-in-out, var(--transition-animation);
 }
 .conatiner-main .mobile-links li a.active {
-  color: #08fdd8;
+  color: var(--accent-color);
 }
 .conatiner-main #sidebar {
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 999999999999;
+  z-index: 999999999;
   display: flex;
   max-width: 1200px;
   left: 50%;
@@ -195,18 +213,20 @@ button {
 .conatiner-main #sidebar a {
   font-size: 1rem;
   text-decoration: none;
-  color: #fff;
-  transition: color 0.25s ease-in-out;
+  color: var(--font-color);
+  transition: color 0.25s ease-in-out, var(--transition-animation);
 }
 .conatiner-main #sidebar .top {
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-right: 105px;
 }
 .conatiner-main #sidebar .top img {
   display: block;
   background-position: center;
   width: 30px;
   margin: 0 auto;
+  filter: var(--filter-image);
 }
 .conatiner-main #sidebar .links {
   list-style: none;
@@ -214,7 +234,7 @@ button {
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1490196078);
+  background: var(--glass-color);
   padding-inline: 1rem;
   -webkit-backdrop-filter: blur(70px);
           backdrop-filter: blur(70px);
@@ -233,22 +253,23 @@ button {
   cursor: pointer;
 }
 .conatiner-main #sidebar .links li a.active {
-  color: #08fdd8;
+  color: var(--accent-color);
 }
 .conatiner-main #sidebar .socials {
   display: flex;
   list-style: none;
   gap: 1rem;
+  align-items: center;
 }
 .conatiner-main #sidebar a:hover {
-  color: #08fdd8;
+  color: var(--accent-color);
 }
 .conatiner-main .content-container {
   height: 100%;
   flex: 1;
   overflow: hidden;
   position: relative;
-  background-color: #000000;
+  background-color: var(--bg-color);
 }
 .conatiner-main .content-container #content {
   height: 100%;
@@ -280,7 +301,7 @@ button {
   opacity: 0;
   top: 140px;
   max-height: 0px;
-  transition: top 0.5s ease-in-out, opacity 0.2s ease-in-out;
+  transition: top 0.5s ease-in-out, opacity 0.2s ease-in-out, var(--transition-animation);
 }
 .conatiner-main .content-container #content section .text,
 .conatiner-main .content-container #content section .about-text,
@@ -301,7 +322,7 @@ button {
   font-family: "Dancing Script", cursive;
   font-size: 1.2rem;
   position: absolute;
-  color: #000;
+  color: var(--tags-color);
 }
 .conatiner-main .content-container #content section .text::after,
 .conatiner-main .content-container #content section .about-text::after,
@@ -328,10 +349,10 @@ button {
 .conatiner-main .content-container #content section .contact-me-text span {
   font-size: 5rem;
   font-weight: 600;
-  transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, var(--transition-animation);
   display: inline-block;
   position: relative;
-  color: #fff;
+  color: var(--font-color);
 }
 .conatiner-main .content-container #content section .text span:hover,
 .conatiner-main .content-container #content section .about-text span:hover,
@@ -356,15 +377,15 @@ button {
 }
 .conatiner-main .content-container #content section .sub-text {
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease-in-out, var(--transition-animation);
   font-size: 1.2em;
-  color: rgba(255, 255, 255, 0.4588235294);
+  color: var(--sub-text-color);
 }
 .conatiner-main .content-container #content section .sub-text::after, .conatiner-main .content-container #content section .sub-text::before {
   font-family: "Dancing Script", cursive;
   font-size: 1.2rem;
   position: absolute;
-  color: #000;
+  color: var(--tags-color);
 }
 .conatiner-main .content-container #content section .sub-text::after {
   content: "<p>";
@@ -483,6 +504,106 @@ button {
   animation: jello-horizontal 1s ease-in-out;
   animation-delay: 2.5s;
 }
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(1) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.1s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(2) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(3) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(4) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.4s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(5) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(6) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.6s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(7) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.7s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(8) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(9) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 0.9s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(10) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(11) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.1s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(12) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.2s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(13) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.3s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(14) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.4s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(15) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(16) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.6s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(17) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.7s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(18) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.8s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(19) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 1.9s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(20) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(21) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2.1s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(22) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2.2s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(23) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2.3s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(24) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2.4s;
+}
+.conatiner-main .content-container #content #main-text .text span.animate:nth-of-type(25) {
+  animation: jello-horizontal 1s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
 .conatiner-main .content-container #content #main-text .sub-text {
   animation: scale-in-ver-bottom 0.9s both;
   animation-delay: 1.3s;
@@ -491,9 +612,9 @@ button {
   outline: 0;
   background-color: transparent;
   border: 0;
-  border: 1px solid #08fdd8;
-  color: #08fdd8;
-  transition: color 0.5s;
+  border: 1px solid var(--font-color);
+  color: var(--font-color);
+  transition: color 0.5s ease-in-out, var(--transition-animation);
   padding-block: 1rem;
   padding-inline: 3rem;
   font-size: 1.2rem;
@@ -505,16 +626,16 @@ button {
   z-index: 1;
 }
 .conatiner-main .content-container #content #main-text button:hover {
-  color: #000;
+  color: var(--bg-color);
   position: relative;
 }
 .conatiner-main .content-container #content #main-text button:hover::before {
-  animation: button-hover 0.5s forwards;
+  animation: button-hover 0.5s ease-in-out forwards;
 }
 .conatiner-main .content-container #content #main-text button:before {
   content: "";
   position: absolute;
-  background-color: #08fdd8;
+  background-color: var(--font-color);
   width: 100%;
   height: 100%;
   inset: 0;
@@ -564,78 +685,6 @@ button {
 }
 .conatiner-main .content-container #content #about .sub-text::after, .conatiner-main .content-container #content #about .sub-text::before {
   font-size: 1.2rem;
-}
-.conatiner-main .content-container #content #about .about-me-list {
-  position: relative;
-  color: rgba(255, 255, 255, 0.6470588235);
-  display: flex;
-  flex-direction: column;
-  padding-left: 1.2rem;
-  gap: 1rem;
-  font-size: 0.9rem;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding-left: 0;
-  padding-block: 1rem;
-}
-.conatiner-main .content-container #content #about .about-me-list::after, .conatiner-main .content-container #content #about .about-me-list::before {
-  font-family: "Dancing Script", cursive;
-  font-size: 1.2rem;
-  position: absolute;
-  color: #000;
-}
-.conatiner-main .content-container #content #about .about-me-list::after {
-  content: "<ul>";
-  top: -20px;
-  left: -20px;
-}
-.conatiner-main .content-container #content #about .about-me-list::before {
-  content: "</ul>";
-  bottom: -20px;
-  left: -20px;
-}
-.conatiner-main .content-container #content #about .about-me-list li {
-  list-style: none;
-  opacity: 0;
-  position: relative;
-  padding-block: 0.5rem;
-  color: rgba(255, 255, 255, 0.6470588235);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-  white-space: nowrap;
-  -webkit-backdrop-filter: blur(70px);
-          backdrop-filter: blur(70px);
-  background-color: rgba(255, 255, 255, 0.1490196078);
-  padding: 0.5rem;
-}
-.conatiner-main .content-container #content #about .about-me-list li img {
-  width: 1rem;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(1) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.1s;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(2) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.2s;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(3) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.3s;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(4) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.4s;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(5) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.5s;
-}
-.conatiner-main .content-container #content #about .about-me-list .animateit:nth-of-type(6) {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation-delay: 0.6s;
 }
 .conatiner-main .content-container #content #my-skills .my-skills-text span {
   font-size: 4rem;
@@ -690,7 +739,7 @@ button {
   flex: 1;
   min-width: 250px;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: var(--glass-color);
   display: flex;
   flex-direction: column;
   -webkit-backdrop-filter: blur(10px);
@@ -701,15 +750,15 @@ button {
   height: fit-content;
 }
 .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card > p {
-  color: rgba(255, 255, 255, 0.6470588235);
+  color: var(--sub-text-color);
 }
 .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card > span {
   width: 100%;
-  height: 10px;
+  height: 5px;
 }
 .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card > span span {
   width: 0%;
-  background-color: #fff;
+  background-color: var(--font-color);
   height: 100%;
   display: block;
 }
@@ -752,13 +801,6 @@ button {
 .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card:nth-of-type(10) > span .animateindicator {
   animation: width-expand 1s linear forwards;
   animation-delay: 1s;
-}
-.conatiner-main .content-container #content #my-skills .my-skills-content .canvas-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
 }
 .conatiner-main .content-container #content #my-work .my-work-text span {
   font-size: 4rem;
@@ -820,7 +862,7 @@ button {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.3254901961);
-  transition: background 0.3s ease-in;
+  transition: background 0.3s ease-in-out, var(--transition-animation);
   padding: 0.5rem;
 }
 .conatiner-main .content-container #content #my-work .work-wrapper > button:hover {
@@ -850,7 +892,7 @@ button {
   min-width: min(100%, 500px);
   padding: 1rem;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: var(--glass-color);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
@@ -862,7 +904,7 @@ button {
   display: block;
 }
 .conatiner-main .content-container #content #my-work .work-wrapper .work-container .work-card > div {
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: var(--glass-color);
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -870,7 +912,7 @@ button {
 }
 .conatiner-main .content-container #content #my-work .work-wrapper .work-container .work-card > div span {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8980392157);
+  color: var(--font-color);
   text-transform: uppercase;
 }
 .conatiner-main .content-container #content #my-work .work-wrapper .work-container .work-card > div > div {
@@ -964,7 +1006,7 @@ button {
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1490196078);
+  background-color: var(--glass-color);
   position: relative;
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper input,
@@ -974,25 +1016,23 @@ button {
   border: none;
   padding: 1rem;
   width: 100%;
-  cursor: url(../../img/text.png), auto;
-  color: #fff;
+  color: var(--font-color);
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper label {
   position: absolute;
-  color: #fff;
+  color: var(--font-color);
   top: 18px;
   left: 15px;
   font-size: 12px;
-  transition: font-size 0.2s ease-in-out, top 0.2s ease-in-out;
-  cursor: url(../../img/text.png), auto;
+  transition: font-size 0.2s ease-in-out, top 0.2s ease-in-out, var(--transition-animation);
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper input:not(:-moz-placeholder-shown) + label, .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper textarea:not(:-moz-placeholder-shown) + label {
-  top: 6px;
+  top: 4px;
   font-size: 0.6rem;
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper input:not(:placeholder-shown) + label,
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper textarea:not(:placeholder-shown) + label {
-  top: 6px;
+  top: 4px;
   font-size: 0.6rem;
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper input::-moz-placeholder, .conatiner-main .content-container #content #contact-me .contact-wrapper .input-wrapper textarea::-moz-placeholder {
@@ -1009,92 +1049,68 @@ button {
   font-size: 12px;
   background-color: transparent;
   outline: none;
-  border: 1px solid #08fdd8;
+  border: 1px solid var(--font-color);
   padding: 1rem;
-  color: #fff;
-  transition: background-color 0.3s ease-in-out;
+  color: var(--font-color);
+  transition: background-color 0.3s ease-in-out, var(--transition-animation);
   font-weight: 700;
 }
 .conatiner-main .content-container #content #contact-me .contact-wrapper button:hover {
-  background-color: #08fdd8;
+  background-color: var(--font-color);
+  color: var(--bg-color);
 }
-.conatiner-main .content-container .scroll-bottom-wrapper {
+
+.mode-change-wrapper {
+  width: 55px;
+  height: 30px;
+  background: var(--glass-color);
+  border-radius: 10px;
+  position: relative;
+}
+.mode-change-wrapper > div {
+  height: 25px;
+  width: 25px;
   position: absolute;
-  z-index: 33;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-}
-.conatiner-main .content-container .scroll-bottom-wrapper .scroll-down {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  writing-mode: vertical-rl;
-  width: -moz-fit-content;
-  width: fit-content;
-  position: absolute;
-  bottom: 30px;
-  animation: scroll-down 0.5s infinite alternate;
-  color: rgba(255, 255, 255, 0.4588235294);
-}
-.conatiner-main .content-container .scroll-bottom-wrapper .scroll-down-left {
-  left: 5px;
-}
-.conatiner-main .content-container .scroll-bottom-wrapper .scroll-down-right {
-  right: 5px;
-}
-
-.tags {
-  position: absolute;
-  font-family: "Dancing Script", cursive;
-  font-size: 1.2rem;
-}
-
-span.html {
-  top: 30px;
-  left: 30px;
-}
-
-span.body {
-  top: 60px;
-  left: 60px;
-}
-
-.blob-container {
-  position: fixed;
-  overflow: hidden;
-  width: 100vw;
-  height: 100dvh;
-  pointer-events: none;
-  left: 0;
-  right: 0;
-}
-
-#blob {
-  animation: rotate360 20s infinite;
-  background: var(--blob-color);
-  filter: blur(calc(var(--blob-size) / 3.15));
-  width: var(--blob-size);
-  height: var(--blob-size);
-  position: absolute;
-  left: 50%;
+  background-color: #fff;
+  border-radius: 100%;
   top: 50%;
-  translate: -50% -50%;
-  pointer-events: none;
-  border-radius: 50%;
+  transform: translateY(-50%);
+  right: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out, var(--transition-animation);
+  background-image: url(../../img/moon.png);
+  background-size: contain;
+  background-color: #000;
+}
+.mode-change-wrapper > div.light {
+  right: calc(100% - 28px);
+  background-image: url(../../img/sun.png);
+  background-color: #fff;
 }
 
-#blob-blur {
+.preloader {
+  background-color: var(--bg-color);
+  position: fixed;
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: 2;
-  -webkit-backdrop-filter: blur;
-          backdrop-filter: blur;
-  pointer-events: none;
+  z-index: 100000000000000000000000000000000000000;
+  display: grid;
+  place-items: center;
+}
+.preloader img {
+  width: 50px;
+  animation: jello-horizontal 1s infinite;
+  filter: var(--filter-image);
 }
 
+@keyframes side-to-side {
+  0% {
+    right: unset;
+  }
+  100% {
+    left: 3px;
+  }
+}
 @keyframes rotate360 {
   from {
     rotate: 0deg;
@@ -1211,6 +1227,14 @@ span.body {
     width: 100%;
   }
 }
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
 /* Small screen size */
 @media only screen and (max-width: 767px) {
   .conatiner-main {
@@ -1247,21 +1271,11 @@ span.body {
   .conatiner-main .content-container #content #my-skills .my-skills-text span {
     font-size: 1.5rem;
   }
+  .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card {
+    min-width: 40%;
+  }
   .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card > p {
-    color: rgba(255, 255, 255, 0.6470588235);
-  }
-  .conatiner-main .content-container #content #my-skills .my-skills-content .canvas-wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    z-index: -1;
-    width: 100%;
-  }
-  .conatiner-main .content-container #content #my-skills .my-skills-content .canvas-wrapper canvas {
-    width: 100%;
-    height: 100%;
+    color: var(--sub-text-color);
   }
   .conatiner-main .content-container #content #my-work .my-work-text span {
     font-size: 1.5rem;
@@ -1286,6 +1300,15 @@ span.body {
   }
   .conatiner-main .scroll-bottom-wrapper {
     display: none;
+  }
+  .bouncing-blob {
+    width: 60vw;
+  }
+  .bouncing-blob--white {
+    width: 30vw;
+  }
+  .bouncing-blobs {
+    filter: blur(50px);
   }
 }
 /* Medium screen size */
@@ -1314,18 +1337,7 @@ span.body {
     font-size: 2rem;
   }
   .conatiner-main .content-container #content #my-skills .my-skills-content .skill-container .skill-card > p {
-    color: rgba(255, 255, 255, 0.6470588235);
-  }
-  .conatiner-main .content-container #content #my-skills .my-skills-content .canvas-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0.8;
-    z-index: -1;
-  }
-  .conatiner-main .content-container #content #my-skills .my-skills-content .canvas-wrapper canvas {
-    width: 100%;
-    height: 100%;
+    color: var(--sub-text-color);
   }
   .conatiner-main .content-container #content #my-work .my-work-text span {
     font-size: 2rem;
@@ -1339,4 +1351,55 @@ span.body {
   .conatiner-main .content-container #content #contact-me .main-text-wrapper .contact-me-text span {
     font-size: 2rem;
   }
+}
+.bouncing-blob {
+  width: 32vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  will-change: transform;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left top;
+}
+
+.bouncing-blob--blue {
+  background: #4783c7;
+}
+
+.bouncing-blob--white {
+  background: #ffffff;
+  z-index: 1;
+  width: 15vw;
+}
+
+.bouncing-blob--purple {
+  background: #8c8ff1;
+}
+
+.bouncing-blob--pink {
+  background: rgba(226, 137, 205, 0.3137254902);
+}
+
+.bouncing-blobs-container {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+}
+
+.bouncing-blobs {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(50px);
+  isolation: isolate;
 }/*# sourceMappingURL=style.css.map */
