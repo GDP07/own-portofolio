@@ -1078,13 +1078,13 @@ button {
   right: 3px;
   cursor: pointer;
   transition: all 0.5s ease-in-out, var(--transition-animation);
-  background-image: url(../../img/moon.png);
+  background-image: url(../img/moon.png);
   background-size: contain;
   background-color: #000;
 }
 .mode-change-wrapper > div.light {
   right: calc(100% - 28px);
-  background-image: url(../../img/sun.png);
+  background-image: url(../img/sun.png);
   background-color: #fff;
 }
 
