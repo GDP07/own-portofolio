@@ -1060,6 +1060,13 @@ button {
   color: var(--bg-color);
 }
 
+.button-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .mode-change-wrapper {
   width: 55px;
   height: 30px;

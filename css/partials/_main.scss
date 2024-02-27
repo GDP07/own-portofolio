@@ -751,6 +751,13 @@ button {
 
 }
 
+.button-wrapper {
+    display: flex;
+    gap: .5rem;
+    row-gap: .5rem;
+    flex-wrap: wrap;
+}
+
 .mode-change-wrapper {
     width: 55px;
     height: 30px;
