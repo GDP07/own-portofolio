@@ -276,13 +276,26 @@ document.getElementById('sendMessageBtn').addEventListener('click', function () 
   var subject = document.getElementById('subject').value;
   var message = document.getElementById('message').value;
 
-  var mailtoLink = 'mailto:gihondiraj2018@gmail.com' +
-    '?subject=' + encodeURIComponent(subject) +
-    '&body=' + encodeURIComponent('Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Message: ' + message);
+  var data = {
+    name: name,
+    email: email,
+    subject: subject,
+    message: message
+  };
 
-  window.location.href = mailtoLink;
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', './mail.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      alert('Email sent successfully');
+    } else {
+      alert('Error sending email. Status code: ' + xhr.status);
+    }
+  };
+  xhr.onerror = function () {
+    alert('Network error occurred');
+  };
+  xhr.send(JSON.stringify(data));
 });
-
 //end send email
