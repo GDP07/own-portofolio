@@ -10,10 +10,6 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery-ui.js"></script>
-        <script src="js/tagcanvas.js"></script>
-        <script src="js/carousel.js"></script>
         <script src="js/script.js" defer></script>
         <link rel="stylesheet" href="css/style.css">
         <title>Diraj | Portofolio</title>
@@ -555,7 +551,7 @@
 
                         <div class="contact-wrapper">
 
-                            <form action="" autocomplete="off">
+                            <!-- <form action="" autocomplete="off">
 
 
                                 <div class="input-wrapper">
@@ -584,7 +580,29 @@
                                 </button>
 
 
+                            </form> -->
+
+                            <form id="contactForm" action="" autocomplete="off">
+                                <div class="input-wrapper">
+                                    <input type="text" id="name" autocomplete="off" placeholder="Name">
+                                    <label for="name">Name</label>
+                                </div>
+                                <div class="input-wrapper">
+                                    <input type="email" id="email" autocomplete="off" placeholder="Email">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="input-wrapper">
+                                    <input type="text" id="subject" autocomplete="off" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                                <div class="input-wrapper">
+                                    <textarea id="message" cols="30" rows="10" autocomplete="off"
+                                        placeholder="Message"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                                <button type="button" id="sendMessageBtn">Send Message</button>
                             </form>
+
 
                         </div>
 

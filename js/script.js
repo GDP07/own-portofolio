@@ -1,112 +1,107 @@
+//dark mode white mode code
 let isDark;
 
 if (localStorage.getItem('isDark')) {
-
   if (localStorage.getItem('isDark') === 'true') {
     isDark = true;
-  }
-  else {
+  } else {
     isDark = false;
-    $('.mode-indicator').toggleClass('light');
+    document.querySelector('.mode-indicator').classList.toggle('light');
   }
-
-}
-else {
+} else {
   isDark = true;
 }
 
+
 updateTheme(isDark);
 
-$('.mode-indicator').click(function () {
-  $(this).toggleClass('light');
+document.querySelector('.mode-indicator').addEventListener('click', function () {
+  this.classList.toggle('light');
   isDark = !isDark;
   localStorage.setItem('isDark', isDark);
   updateTheme(isDark);
 });
 
+
 function updateTheme(isDark) {
+  const bodyStyle = document.body.style;
   if (isDark) {
-    // Dark mode
-    $('body').css({
-      '--font-color': '#fff',
-      '--tags-color': '#000',
-      '--sub-text-color': '#ffffff75',
-      '--accent-color': '#08fdd8',
-      '--glass-color': '#ffffff26',
-      '--bg-color': '#000',
-      '--filter-image': 'unset'
-    });
-
-
-
+    bodyStyle.setProperty('--font-color', '#fff');
+    bodyStyle.setProperty('--tags-color', '#000');
+    bodyStyle.setProperty('--sub-text-color', '#ffffff75');
+    bodyStyle.setProperty('--accent-color', '#08fdd8');
+    bodyStyle.setProperty('--glass-color', '#ffffff26');
+    bodyStyle.setProperty('--bg-color', '#000');
+    bodyStyle.setProperty('--filter-image', 'unset');
   } else {
-    // Light mode
-    $('body').css({
-      '--font-color': '#000',
-      '--tags-color': '#000',
-      '--sub-text-color': '#000000a3',
-      '--accent-color': '#ff0000',
-      '--glass-color': '#00000012',
-      '--bg-color': '#fff',
-      '--filter-image': 'invert(1)'
-    });
-
+    bodyStyle.setProperty('--font-color', '#000');
+    bodyStyle.setProperty('--tags-color', '#000');
+    bodyStyle.setProperty('--sub-text-color', '#000000a3');
+    bodyStyle.setProperty('--accent-color', '#ff0000');
+    bodyStyle.setProperty('--glass-color', '#00000012');
+    bodyStyle.setProperty('--bg-color', '#fff');
+    bodyStyle.setProperty('--filter-image', 'invert(1)');
   }
 }
+//end dark mode white mode code
 
-
+//add text animation when load
 window.addEventListener('load', function () {
   var preloader = document.querySelector('.preloader');
   preloadImages();
   preloader.parentNode.removeChild(preloader);
 
-  $("#year").text(new Date().getFullYear());
-
-  $(".text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("animated");
+  var textSpans = document.querySelectorAll(".text span");
+  textSpans.forEach(function (span) {
+    span.addEventListener("webkitAnimationEnd", removeAnimatedClass);
+    span.addEventListener("mozAnimationEnd", removeAnimatedClass);
+    span.addEventListener("animationEnd", removeAnimatedClass);
+    span.addEventListener("mouseenter", addAnimatedClass);
   });
 
-  $(".text span").hover(function () {
-    $(this).addClass("animated");
+  var aboutTextSpans = document.querySelectorAll(".about-text span");
+  aboutTextSpans.forEach(function (span) {
+    span.addEventListener("mouseenter", addAnimatedClass);
+    span.addEventListener("webkitAnimationEnd", removeAnimatedClass);
+    span.addEventListener("mozAnimationEnd", removeAnimatedClass);
+    span.addEventListener("animationEnd", removeAnimatedClass);
   });
 
-  $(".about-text span").hover(function () {
-    $(this).addClass("animated");
+  var mySkillsTextSpans = document.querySelectorAll(".my-skills-text span");
+  mySkillsTextSpans.forEach(function (span) {
+    span.addEventListener("mouseenter", addAnimatedClass);
+    span.addEventListener("webkitAnimationEnd", removeAnimatedClass);
+    span.addEventListener("mozAnimationEnd", removeAnimatedClass);
+    span.addEventListener("animationEnd", removeAnimatedClass);
   });
 
-  $(".my-skills-text span").hover(function () {
-    $(this).addClass("animated");
+  var myWorkTextSpans = document.querySelectorAll(".my-work-text span");
+  myWorkTextSpans.forEach(function (span) {
+    span.addEventListener("mouseenter", addAnimatedClass);
+    span.addEventListener("webkitAnimationEnd", removeAnimatedClass);
+    span.addEventListener("mozAnimationEnd", removeAnimatedClass);
+    span.addEventListener("animationEnd", removeAnimatedClass);
   });
 
-  $(".my-work-text span").hover(function () {
-    $(this).addClass("animated");
+  var contactMeTextSpans = document.querySelectorAll(".contact-me-text span");
+  contactMeTextSpans.forEach(function (span) {
+    span.addEventListener("mouseenter", addAnimatedClass);
+    span.addEventListener("webkitAnimationEnd", removeAnimatedClass);
+    span.addEventListener("mozAnimationEnd", removeAnimatedClass);
+    span.addEventListener("animationEnd", removeAnimatedClass);
   });
 
-  $(".contact-me-text span").hover(function () {
-    $(this).addClass("animated");
-  });
+  function removeAnimatedClass() {
+    this.classList.remove("animated", "opening-text");
+  }
 
-  $(".text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("opening-text");
-  });
-
-  $(".about-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("animated");
-  });
-
-  $(".my-skills-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("animated");
-  });
-
-  $(".contact-me-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("animated");
-  });
-
-  $(".my-work-text span").bind("webkitAnimationEnd mozAnimationEnd animationEnd", function () {
-    $(this).removeClass("animated");
-  });
+  function addAnimatedClass() {
+    this.classList.add("animated");
+  }
 });
+//endadd text animation when load
 
+//preload images
 function preloadImages() {
   const images = document.querySelectorAll('.work-card img');
   images.forEach(img => {
@@ -117,7 +112,9 @@ function preloadImages() {
     }
   });
 }
+//end preload images
 
+//my work slider
 function scrollContainer(direction) {
   const container = document.querySelector('.work-container');
   const scrollAmount = 300;
@@ -133,127 +130,26 @@ function scrollContainer(direction) {
     });
   }
 }
+//end my work
 
-$('section').css({
-  'opacity': '0',
-  'transition': 'top .5s ease-in-out, opacity 0s ease-in-out',
-  'max-height': '0px',
-  'min-height': '0px',
-  'top': '140px',
-  'z-index': '0'
-});
-
-$('#main-text').css({
-  'max-height': 'unset',
-  'min-height': 'calc(100dvh - 75px)',
-  'opacity': '1',
-  'top': 'var(--top-value)',
-  'pointer-events': 'all',
-  'z-index': '999999'
-})
-
-function manipulateSections(divId) {
-
-  $('section').css({
-    'opacity': '0',
-    'transition': 'top .5s ease-in-out, opacity 0s ease-in-out',
-    'max-height': '0px',
-    'min-height': '0px',
-    'top': '140px',
-    'z-index': '0'
+//highlight active nav menu
+document.querySelectorAll('.links li a').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    document.querySelectorAll('a').forEach(function (a) {
+      a.classList.remove('active');
+    });
+    this.classList.add('active');
   });
-
-  $('#' + divId).css({
-    'max-height': 'unset',
-    'min-height': 'fit-content',
-    'transition': 'top .5s ease-in-out, opacity .5s ease-in-out',
-    'opacity': '1',
-    'top': 'var(--top-value)',
-    'pointer-events': 'all',
-    'z-index': '999999'
-  });
-
-  if (divId === 'main-text' || divId === 'my-skills' || divId === 'main-work' || divId === 'contact-me' || divId === 'about') {
-    $('#' + divId).css({
-
-      'min-height': 'calc(100dvh - 75px)',
-
-    });
-  }
-
-  if (divId == "about") {
-    $('.about-text span').addClass('animate').one('animationend', function () {
-      $(this).removeClass('opening-text');
-      $(this).removeClass('animate');
-    });
-
-    setTimeout(function () {
-      $(".about-me-sub-text").addClass("animateit");
-    }, 500);
-
-    setTimeout(function () {
-      $(".about-me-list li").addClass("animateit");
-    }, 1000);
-  }
-
-  if (divId == "my-skills") {
-    $('.my-skills-text span').addClass('animate').one('animationend', function () {
-      $(this).removeClass('opening-text');
-      $(this).removeClass('animate');
-    });
-
-    setTimeout(function () {
-      $(".indicator").addClass("animateindicator");
-    }, 500);
-
-  }
-
-  if (divId == "main-text") {
-    $('#main-text .text span').addClass('animate').one('animationend', function () {
-      $(this).removeClass('opening-text');
-      $(this).removeClass('animate');
-    });
-
-  }
-
-  if (divId == "my-work") {
-    $('.my-work-text span').addClass('animate').one('animationend', function () {
-      $(this).removeClass('opening-text');
-      $(this).removeClass('animate');
-    });
-    setTimeout(function () {
-      $(".my-work-sub-text").addClass("animateit");
-    }, 250);
-    setTimeout(function () {
-      $(".work-wrapper").addClass("animateit");
-    }, 500);
-
-  }
-
-  if (divId == "contact-me") {
-    console.log(divId);
-    $('.contact-me-text span').addClass('animate').one('animationend', function () {
-      $(this).removeClass('opening-text');
-      $(this).removeClass('animate');
-    });
-    setTimeout(function () {
-      $(".contact-me-sub-text").addClass("animateit");
-    }, 250);
-
-  }
-}
-
-$('.links li a').on('click', function () {
-  $('a').removeClass('active');
-  $(this).addClass('active');
 });
+//highlight active nav menu
 
-$(".bouncing-blob").each(function () {
-  var $blob = $(this);
-  var containerWidth = $blob.parent().width();
-  var containerHeight = $blob.parent().height();
-  var blobWidth = $blob.width();
-  var blobHeight = $blob.height();
+//blob animation
+document.querySelectorAll(".bouncing-blob").forEach(function (blob) {
+  var container = blob.parentElement;
+  var containerWidth = container.clientWidth;
+  var containerHeight = container.clientHeight;
+  var blobWidth = blob.offsetWidth;
+  var blobHeight = blob.offsetHeight;
   var maxX = containerWidth - blobWidth;
   var maxY = containerHeight - blobHeight;
 
@@ -266,10 +162,127 @@ $(".bouncing-blob").each(function () {
 
   function moveBlob() {
     var pos = randomPos();
-    $blob.animate(pos, 3000, function () {
-      moveBlob();
-    });
+    blob.style.transition = "left 3s, top 3s";
+    blob.style.left = pos.left + "px";
+    blob.style.top = pos.top + "px";
   }
 
   moveBlob();
+
+  setInterval(function () {
+    moveBlob();
+  }, 3000);
 });
+//end blob animation
+
+
+//fucntion for revealing each section
+function manipulateSections(divId) {
+  var sections = document.querySelectorAll('section');
+  sections.forEach(function (section) {
+    section.style.opacity = '0';
+    section.style.transition = 'top .5s ease-in-out, opacity 0s ease-in-out';
+    section.style.maxHeight = '0px';
+    section.style.minHeight = '0px';
+    section.style.top = '140px';
+    section.style.zIndex = '0';
+  });
+
+  var targetSection = document.getElementById(divId);
+  targetSection.style.maxHeight = 'unset';
+  targetSection.style.minHeight = 'fit-content';
+  targetSection.style.transition = 'top .5s ease-in-out, opacity .5s ease-in-out';
+  targetSection.style.opacity = '1';
+  targetSection.style.top = 'var(--top-value)';
+  targetSection.style.pointerEvents = 'all';
+  targetSection.style.zIndex = '999999';
+
+  if (divId === 'main-text' || divId === 'my-skills' || divId === 'main-work' || divId === 'contact-me' || divId === 'about') {
+    targetSection.style.minHeight = 'calc(100vh - 75px)';
+  }
+
+  function removeOpeningTextAnimation(element) {
+    element.classList.remove('opening-text');
+    element.classList.remove('animate');
+    element.removeEventListener('animationend', removeOpeningTextAnimation);
+  }
+
+  function addOpeningTextAnimation(elements) {
+    elements.forEach(function (element) {
+      element.classList.add('animate');
+      element.addEventListener('animationend', function () {
+        removeOpeningTextAnimation(element);
+      }, { once: true });
+    });
+  }
+
+  if (divId === "about") {
+    var aboutTextSpans = document.querySelectorAll('.about-text span');
+    addOpeningTextAnimation(aboutTextSpans);
+
+    setTimeout(function () {
+      document.querySelector(".about-me-sub-text").classList.add("animateit");
+    }, 500);
+
+    setTimeout(function () {
+      document.querySelectorAll(".about-me-list li").forEach(function (li) {
+        li.classList.add("animateit");
+      });
+    }, 1000);
+  }
+
+  if (divId === "my-skills") {
+    var mySkillsTextSpans = document.querySelectorAll('.my-skills-text span');
+    addOpeningTextAnimation(mySkillsTextSpans);
+
+    var indicatorElements = document.querySelectorAll(".indicator");
+    indicatorElements.forEach(function (element) {
+      element.classList.add("animateindicator");
+    });
+  }
+
+  if (divId === "main-text") {
+    var mainTextSpans = document.querySelectorAll('#main-text .text span');
+    addOpeningTextAnimation(mainTextSpans);
+  }
+
+  if (divId === "my-work") {
+    var myWorkTextSpans = document.querySelectorAll('.my-work-text span');
+    addOpeningTextAnimation(myWorkTextSpans);
+
+    setTimeout(function () {
+      document.querySelector(".my-work-sub-text").classList.add("animateit");
+    }, 250);
+    setTimeout(function () {
+      document.querySelector(".work-wrapper").classList.add("animateit");
+    }, 500);
+  }
+
+  if (divId === "contact-me") {
+    var contactMeTextSpans = document.querySelectorAll('.contact-me-text span');
+    addOpeningTextAnimation(contactMeTextSpans);
+
+    setTimeout(function () {
+      document.querySelector(".contact-me-sub-text").classList.add("animateit");
+    }, 250);
+  }
+}
+//end fucntion for revealing each section
+
+//send email
+document.getElementById('sendMessageBtn').addEventListener('click', function () {
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var subject = document.getElementById('subject').value;
+  var message = document.getElementById('message').value;
+
+  var mailtoLink = 'mailto:gihondiraj2018@gmail.com' +
+    '?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent('Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Message: ' + message);
+
+  window.location.href = mailtoLink;
+});
+
+//end send email
