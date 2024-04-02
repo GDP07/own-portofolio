@@ -1,4 +1,4 @@
-//dark mode white mode code
+//dark mode white mode code 
 let isDark;
 
 if (localStorage.getItem('isDark')) {
